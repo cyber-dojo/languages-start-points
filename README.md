@@ -10,6 +10,7 @@
   - [compressed.image_sizes.sorted](https://github.com/cyber-dojo/languages-start-points/blob/master/compressed.image_sizes.sorted) lists all the images named in these `manifest.json` files, together with their (compressed) sizes, in descending order. Information only.
   - [git_repo_urls.tagged](https://github.com/cyber-dojo/languages-start-points/blob/master/git_repo_urls.tagged) lists all the language-test-framework repositories (each repo contributes one `manifest.json`) to the image.
 
+- Build the image [build_test_publish.sh](https://github.com/cyber-dojo/languages-start-points/blob/master/build_test_publish.sh) if you are testing locally.
 - Then commit and push. The resulting image's registry is  [cyberdojo/languages-start-points](https://hub.docker.com/r/cyberdojo/languages-start-points/tags)
 
 
