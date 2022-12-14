@@ -34,3 +34,9 @@ image_sha()
   docker run --rm $(image_name) sh -c 'echo ${SHA}'
 }
 
+root_dir()
+{
+  # Functions in this file are called after sourcing (not including)
+  # this file so root_dir() cannot use the path of this script.
+  git rev-parse --show-toplevel
+}
