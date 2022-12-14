@@ -1,9 +1,0 @@
-{
-    "owner": "cyber-dojo",
-    "name": "languages-start-points",
-    "description": "Language+TestFramework choices",
-    "visibility": "public",
-    "template": [
-        "artifact"
-    ]
-}
