@@ -66,7 +66,7 @@ kosli_expect_deployment()
 artifact_name() {
   source "$(root_dir)/sh/echo_versioner_env_vars.sh"
   export $(echo_versioner_env_vars)
-  echo "${CYBER_DOJO_EXERCISES_START_POINTS_IMAGE}:${CYBER_DOJO_EXERCISES_START_POINTS_TAG}"
+  echo "${CYBER_DOJO_LANGUAGES_START_POINTS_IMAGE}:${CYBER_DOJO_LANGUAGES_START_POINTS_TAG}"
 }
 
 # - - - - - - - - - - - - - - - - - - -
