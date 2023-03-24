@@ -2,7 +2,7 @@
 
 # ROOT_DIR must be set
 
-export KOSLI_OWNER=cyber-dojo
+export KOSLI_ORG=cyber-dojo
 export KOSLI_FLOW=languages-start-points
 
 readonly KOSLI_HOST_STAGING=https://staging.app.kosli.com
