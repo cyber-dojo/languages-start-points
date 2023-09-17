@@ -2,11 +2,13 @@
 
 # ROOT_DIR must be set
 
-export KOSLI_ORG=cyber-dojo
 export KOSLI_FLOW=languages-start-points
 
-readonly KOSLI_HOST_STAGING=https://staging.app.kosli.com
-readonly KOSLI_HOST_PRODUCTION=https://app.kosli.com
+# KOSLI_ORG is set in CI
+# KOSLI_API_TOKEN is set in CI
+# KOSLI_HOST_STAGING is set in CI
+# KOSLI_HOST_PRODUCTION is set in CI
+# SNYK_TOKEN is set in CI
 
 # - - - - - - - - - - - - - - - - - - -
 kosli_create_flow()
@@ -14,10 +16,10 @@ kosli_create_flow()
   local -r hostname="${1}"
 
     kosli create flow "${KOSLI_FLOW}" \
-    --description "Language+TestFramework choices" \
-    --host "${hostname}" \
-    --template artifact \
-    --visibility public
+    --description="Language+TestFramework choices" \
+    --host="${hostname}" \
+    --template=artifact \
+    --visibility=public
 }
 
 # - - - - - - - - - - - - - - - - - - -
@@ -25,11 +27,10 @@ kosli_report_artifact()
 {
   local -r hostname="${1}"
 
-  cd "$(root_dir)"
-
   kosli report artifact "$(artifact_name)" \
       --artifact-type docker \
-      --host "${hostname}"
+      --host "${hostname}" \
+      --repo-root="$(root_dir)"
 }
 
 # - - - - - - - - - - - - - - - - - - -
@@ -38,8 +39,20 @@ kosli_assert_artifact()
   local -r hostname="${1}"
 
   kosli assert artifact "$(artifact_name)" \
-      --artifact-type docker \
-      --host "${hostname}"
+      --artifact-type=docker \
+      --host="${hostname}"
+}
+
+# - - - - - - - - - - - - - - - - - - -
+kosli_report_snyk()
+{
+  local -r hostname="${1}"
+
+  kosli report evidence artifact snyk "$(artifact_name)" \
+      --artifact-type=docker \
+      --host="${hostname}" \
+      --name=snyk-scan \
+      --scan-results="$(root_dir)/snyk.json"
 }
 
 # - - - - - - - - - - - - - - - - - - -
@@ -53,10 +66,10 @@ kosli_expect_deployment()
   docker pull "$(artifact_name)"
 
   kosli expect deployment "$(artifact_name)" \
-    --artifact-type docker \
-    --description "Deployed to ${environment} in Github Actions pipeline" \
-    --environment "${environment}" \
-    --host "${hostname}"
+    --artifact-type=docker \
+    --description="Deployed to ${environment} in Github Actions pipeline" \
+    --environment="${environment}" \
+    --host="${hostname}"
 }
 
 # - - - - - - - - - - - - - - - - - - -
@@ -70,8 +83,6 @@ artifact_name()
 # - - - - - - - - - - - - - - - - - - -
 root_dir()
 {
-  # Functions in this file are called after sourcing (not including)
-  # this file so root_dir() cannot use the path of this script.
   git rev-parse --show-toplevel
 }
 
@@ -98,6 +109,21 @@ on_ci_kosli_report_artifact()
     docker push "$(image_name):$(git_commit_tag)"
     kosli_report_artifact "${KOSLI_HOST_STAGING}"
     kosli_report_artifact "${KOSLI_HOST_PRODUCTION}"
+  fi
+}
+
+# - - - - - - - - - - - - - - - - - - -
+on_ci_kosli_report_snyk_scan_evidence()
+{
+  if on_ci; then
+    set +e
+    snyk container test "$(artifact_name)" \
+      --json-file-output="$(root_dir)/snyk.json" \
+      --policy-path="$(root_dir)/.snyk"
+    set -e
+
+    kosli_report_snyk "${KOSLI_HOST_STAGING}"
+    kosli_report_snyk "${KOSLI_HOST_PRODUCTION}"
   fi
 }
 
