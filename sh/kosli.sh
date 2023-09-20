@@ -18,7 +18,7 @@ kosli_create_flow()
     kosli create flow "${KOSLI_FLOW}" \
     --description="Language+TestFramework choices" \
     --host="${hostname}" \
-    --template=artifact \
+    --template=artifact,snyk-scan \
     --visibility=public
 }
 
