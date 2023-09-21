@@ -11,7 +11,7 @@
   - [compressed.image_sizes.sorted](https://github.com/cyber-dojo/languages-start-points/blob/master/compressed.image_sizes.sorted) lists all the images named in these `manifest.json` files, together with their (compressed) sizes, in descending order. Informational only.
 
 - Run the script [build_test_publish.sh](https://github.com/cyber-dojo/languages-start-points/blob/master/build_test_publish.sh) to build the image if you are working locally.
-- Commit and push. The resulting image's registry is  [cyberdojo/languages-start-points](https://hub.docker.com/r/cyberdojo/languages-start-points/tags)
+- Commit and push. The resulting image's dockerhub registry is  [cyberdojo/languages-start-points](https://hub.docker.com/r/cyberdojo/languages-start-points/tags)
 
 
 ***
