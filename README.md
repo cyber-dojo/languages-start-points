@@ -1,8 +1,8 @@
 [![Github Action (main)](https://github.com/cyber-dojo/languages-start-points/actions/workflows/main.yml/badge.svg)](https://github.com/cyber-dojo/languages-start-points/actions)
 
-- A docker-containerized micro-service for [https://cyber-dojo.org](http://cyber-dojo.org).
+- A [docker-containerized](https://registry.hub.docker.com/r/cyberdojo/languages-start-points) micro-service for [https://cyber-dojo.org](http://cyber-dojo.org).
 - The data source for the `choose a language & test-framework` page.
-- A [Kolsi](https://www.kosli.com/) showcase for a [CI flow](https://app.kosli.com/cyber-dojo/flows/languages-start-points/artifacts/) and an [aws production environment](https://app.kosli.com/cyber-dojo/environments/aws-prod/snapshots/)
+- A [Kosli](https://www.kosli.com/) showcase for a [CI flow](https://app.kosli.com/cyber-dojo/flows/languages-start-points/artifacts/) and an [aws production environment](https://app.kosli.com/cyber-dojo/environments/aws-prod/snapshots/)
 
 <img width="75%" src="https://user-images.githubusercontent.com/252118/97070783-fa349e80-15d2-11eb-85e3-e0a1201be060.png">
 
