@@ -109,7 +109,7 @@ function process_all_urls()
 {
   for i in "${!ALL_URLS[@]}"
   do
-    local url="${ALL_URLS[$i]}"            # https://github.com/cyber-dojo-start-points/csharp-nunit
+    local url="${ALL_URLS[$i]}"            # https://github.com/cyber-dojo-start-points/csharp-nunit
     local repo_dir="${TMP_DIR}/${i}"
     git clone "${url}" "${repo_dir}" > /dev/null 2>&1
     get_tagged_repo_url "${repo_dir}"
