@@ -6,6 +6,7 @@ export KOSLI_FLOW=languages-start-points
 
 # KOSLI_ORG is set in CI
 # KOSLI_API_TOKEN is set in CI
+# KOSLI_API_TOKEN_STAGING is set in CI
 # KOSLI_HOST_STAGING is set in CI
 # KOSLI_HOST_PRODUCTION is set in CI
 # SNYK_TOKEN is set in CI
@@ -14,10 +15,12 @@ export KOSLI_FLOW=languages-start-points
 kosli_create_flow()
 {
   local -r hostname="${1}"
+  local -r api_token="${2}"
 
     kosli create flow "${KOSLI_FLOW}" \
     --description="Language+TestFramework choices" \
     --host="${hostname}" \
+    --api-token="${api_token}" \
     --template=artifact,snyk-scan \
     --visibility=public
 }
@@ -26,10 +29,12 @@ kosli_create_flow()
 kosli_report_artifact()
 {
   local -r hostname="${1}"
+  local -r api_token="${2}"
 
   kosli report artifact "$(artifact_name)" \
       --artifact-type docker \
       --host "${hostname}" \
+      --api-token="${api_token}" \
       --repo-root="$(root_dir)"
 }
 
@@ -37,20 +42,24 @@ kosli_report_artifact()
 kosli_assert_artifact()
 {
   local -r hostname="${1}"
+  local -r api_token="${2}"
 
   kosli assert artifact "$(artifact_name)" \
       --artifact-type=docker \
-      --host="${hostname}"
+      --host="${hostname}" \
+      --api-token="${api_token}"
 }
 
 # - - - - - - - - - - - - - - - - - - -
 kosli_report_snyk()
 {
   local -r hostname="${1}"
+  local -r api_token="${2}"
 
   kosli report evidence artifact snyk "$(artifact_name)" \
       --artifact-type=docker \
       --host="${hostname}" \
+      --api-token="${api_token}" \
       --name=snyk-scan \
       --scan-results="$(root_dir)/snyk.json"
 }
@@ -96,8 +105,8 @@ on_ci()
 on_ci_kosli_create_flow()
 {
   if on_ci; then
-    kosli_create_flow "${KOSLI_HOST_STAGING}"
-    kosli_create_flow "${KOSLI_HOST_PRODUCTION}"
+    kosli_create_flow "${KOSLI_HOST_STAGING}"    "${KOSLI_API_TOKEN_STAGING}"
+    kosli_create_flow "${KOSLI_HOST_PRODUCTION}" "${KOSLI_API_TOKEN}"
   fi
 }
 
@@ -107,8 +116,8 @@ on_ci_kosli_report_artifact()
   if on_ci; then
     docker push "$(image_name):latest"
     docker push "$(image_name):$(git_commit_tag)"
-    kosli_report_artifact "${KOSLI_HOST_STAGING}"
-    kosli_report_artifact "${KOSLI_HOST_PRODUCTION}"
+    kosli_report_artifact "${KOSLI_HOST_STAGING}"    "${KOSLI_API_TOKEN_STAGING}"
+    kosli_report_artifact "${KOSLI_HOST_PRODUCTION}" "${KOSLI_API_TOKEN}"
   fi
 }
 
@@ -122,8 +131,8 @@ on_ci_kosli_report_snyk_scan_evidence()
       --policy-path="$(root_dir)/.snyk"
     set -e
 
-    kosli_report_snyk "${KOSLI_HOST_STAGING}"
-    kosli_report_snyk "${KOSLI_HOST_PRODUCTION}"
+    kosli_report_snyk "${KOSLI_HOST_STAGING}"    "${KOSLI_API_TOKEN_STAGING}"
+    kosli_report_snyk "${KOSLI_HOST_PRODUCTION}" "${KOSLI_API_TOKEN}"
   fi
 }
 
@@ -131,8 +140,8 @@ on_ci_kosli_report_snyk_scan_evidence()
 on_ci_kosli_assert_artifact()
 {
   if on_ci; then
-    kosli_assert_artifact "${KOSLI_HOST_STAGING}"
-    kosli_assert_artifact "${KOSLI_HOST_PRODUCTION}"
+    kosli_assert_artifact "${KOSLI_HOST_STAGING}"    "${KOSLI_API_TOKEN_STAGING}"
+    kosli_assert_artifact "${KOSLI_HOST_PRODUCTION}" "${KOSLI_API_TOKEN}"
   fi
 }
 
