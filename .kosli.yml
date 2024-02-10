@@ -1,0 +1,8 @@
+version: 1
+
+trail:
+  artifacts:
+    - name: languages-start-points
+      attestations:
+        - name: snyk-scan
+          type: snyk
