@@ -1,7 +1,5 @@
 #!/bin/bash -Eeu
 
-# ROOT_DIR must be set
-
 export KOSLI_ORG=cyber-dojo
 export KOSLI_FLOW=languages-start-points-ci
 export KOSLI_TRAIL="${GITHUB_SHA}"
@@ -19,7 +17,7 @@ kosli_begin_trail()
   local -r hostname="${1}"
   local -r api_token="${2}"
 
-    kosli create flow "${KOSLI_FLOW}" \
+  kosli create flow "${KOSLI_FLOW}" \
     --description="Language+TestFramework choices" \
     --host="${hostname}" \
     --api-token="${api_token}" \
@@ -38,11 +36,11 @@ kosli_attest_artifact()
   local -r api_token="${2}"
 
   kosli attest artifact "$(artifact_name)" \
-      --artifact-type docker \
-      --host "${hostname}" \
-      --api-token="${api_token}" \
-      --name=languages-start-points \
-      --repo-root="$(repo_root)"
+    --artifact-type docker \
+    --host "${hostname}" \
+    --api-token="${api_token}" \
+    --name=languages-start-points \
+    --repo-root="$(repo_root)"
 }
 
 # - - - - - - - - - - - - - - - - - - -
@@ -52,9 +50,9 @@ kosli_assert_artifact()
   local -r api_token="${2}"
 
   kosli assert artifact "$(artifact_name)" \
-      --artifact-type=docker \
-      --host="${hostname}" \
-      --api-token="${api_token}"
+    --artifact-type=docker \
+    --host="${hostname}" \
+    --api-token="${api_token}"
 }
 
 # - - - - - - - - - - - - - - - - - - -
@@ -64,11 +62,11 @@ kosli_attest_snyk()
   local -r api_token="${2}"
 
   kosli attest snyk "$(artifact_name)" \
-      --artifact-type=docker \
-      --host="${hostname}" \
-      --api-token="${api_token}" \
-      --name=languages-start-points.snyk-scan \
-      --scan-results="$(repo_root)/snyk.json"
+    --artifact-type=docker \
+    --host="${hostname}" \
+    --api-token="${api_token}" \
+    --name=languages-start-points.snyk-scan \
+    --scan-results="$(repo_root)/snyk.json"
 }
 
 # - - - - - - - - - - - - - - - - - - -
