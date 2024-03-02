@@ -79,18 +79,6 @@ artifact_name()
 }
 
 # - - - - - - - - - - - - - - - - - - -
-repo_root()
-{
-  git rev-parse --show-toplevel
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - -
-on_ci()
-{
-  [ -n "${CI:-}" ]
-}
-
-# - - - - - - - - - - - - - - - - - - -
 on_ci_kosli_begin_trail()
 {
   if on_ci; then

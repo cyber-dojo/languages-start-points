@@ -7,11 +7,12 @@
 
 <img width="75%" src="https://user-images.githubusercontent.com/252118/97070783-fa349e80-15d2-11eb-85e3-e0a1201be060.png">
 
-- Run the script [sh/update_image_lists.sh](https://github.com/cyber-dojo/languages-start-points/blob/master/sh/update_image_lists.sh) after adding any new urls, to create up to date versions of the two image list files:
+- Add any new urls to ALL_URLS in [sh/update_image_lists.sh](https://github.com/cyber-dojo/languages-start-points/blob/master/sh/update_image_lists.sh) 
+- Run the script [sh/update_image_lists.sh](https://github.com/cyber-dojo/languages-start-points/blob/master/sh/update_image_lists.sh) to create up-to-date versions of the two image list files:
   - [git_repo_urls.tagged](https://github.com/cyber-dojo/languages-start-points/blob/master/git_repo_urls.tagged) lists all the language-test-framework repositories (each repo contributes one `manifest.json`) to the image.
   - [compressed.image_sizes.sorted](https://github.com/cyber-dojo/languages-start-points/blob/master/compressed.image_sizes.sorted) lists all the images named in these `manifest.json` files, together with their (compressed) sizes, in descending order. Informational only.
 
-- Run the script [build_test_publish.sh](https://github.com/cyber-dojo/languages-start-points/blob/master/build_test_publish.sh) to build the image if you are working locally.
+- Run the `make image` to build the image from `git_repo_urls.tagged`.
 - Commit and push. The resulting image's dockerhub registry is  [cyberdojo/languages-start-points](https://hub.docker.com/r/cyberdojo/languages-start-points/tags)
 
 
