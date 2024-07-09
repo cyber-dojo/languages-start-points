@@ -1,3 +1,14 @@
 # This file specifies snyk vulnerabilities to be ignored.
 # If this file contains only comments, then no vulnerabilities are ignored
 # but do not delete this file - it is needed for the live-snyk-scans repo workflows.
+ignore:
+  SNYK-ALPINE319-OPENSSL-7413523:
+    - '*':
+        reason: Need to deploy new service version
+        expires: 2024-07-19T10:03:36.581Z
+        created: 2024-06-19T10:03:36.589Z
+  SNYK-ALPINE319-OPENSSL-7413527:
+    - '*':
+        reason: Need to deploy new service version
+        expires: 2024-07-31T09:45:21.597Z
+        created: 2024-07-01T09:45:21.601Z
