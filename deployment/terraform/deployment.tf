@@ -16,5 +16,5 @@ module "ecs-service" {
       host_path     = "/ebs_data/cyber-dojo/languages_start_points"
     }
   ]
-  tags                      = module.tags.result
+  tags = module.tags.result
 }
