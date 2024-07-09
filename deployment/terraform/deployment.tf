@@ -9,5 +9,12 @@ module "ecs-service" {
   mem_limit                 = var.mem_limit
   app_env_vars              = local.app_env_vars
   ecs_wait_for_steady_state = true
+  volumes = [
+    {
+      name          = "languages_start_points_data"
+      containerPath = "/tmp"
+      host_path     = "/ebs_data/cyber-dojo/languages_start_points"
+    }
+  ]
   tags                      = module.tags.result
 }
