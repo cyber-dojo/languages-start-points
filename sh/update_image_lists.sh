@@ -132,14 +132,29 @@ function get_tagged_repo_url()
 function get_compressed_image_size()
 {
   local -r repo_dir="${1}"
+  local size
 
   local image_name=$(cat "${repo_dir}/start_point/manifest.json" | jq --raw-output '.image_name') # cyberdojofoundation/csharp_nunit:32503c4
   local untagged="$(echo ${image_name} | awk -F: '{print $(NF-1)}')" # cyberdojofoundation/csharp_nunit
   local tag="$(echo ${image_name} | awk -F: '{print $(NF)}')"        # 32503c4
 
-  local size=$(curl --silent ${DOCKERHUB}/${untagged}/tags/${tag} | jq '.full_size') # 227987976
+  if on_GHCR $image_name; then
+    size=$(docker manifest inspect $image_name | jq -r '.config.size + ([.layers[].size] | add)' )
+
+  else
+    size=$(curl --silent ${DOCKERHUB}/${untagged}/tags/${tag} | jq '.full_size') # 227987976
+  fi
+
   local human=$(human_size "${size}")                                                # 217.42 MiB
   echo "${size} ${image_name} ${human}" | tee -a "${TMP_FILE_2}"
+}
+
+function on_GHCR()
+{
+  local -r image_name="${1}"
+  local start="$(echo ${image_name} | awk -F '/' '{print $1}')"
+  [ "${start}" == "ghcr.io" ]
+
 }
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
