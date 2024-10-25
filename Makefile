@@ -7,7 +7,7 @@ IMAGE_NAME := cyberdojo/languages-start-points:${SHORT_SHA}
 image:
 	${PWD}/sh/build_test_tag.sh
 
-snyk-container: image
+snyk-container: 
 	snyk container test ${IMAGE_NAME} \
 		--sarif \
 		--sarif-file-output=snyk.container.scan.json \
