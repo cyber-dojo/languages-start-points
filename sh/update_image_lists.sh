@@ -138,9 +138,11 @@ function get_compressed_image_size()
   local untagged="$(echo ${image_name} | awk -F: '{print $(NF-1)}')" # cyberdojofoundation/csharp_nunit
   local tag="$(echo ${image_name} | awk -F: '{print $(NF)}')"        # 32503c4
 
+  #Since we're in the process of moving images from DockerHub to GHCR, we need to handle both cases
   if on_GHCR $image_name; then
-    size=$(docker manifest inspect $image_name | jq -r '.config.size + ([.layers[].size] | add)' )
-
+    #Get the sha digest for the amd image (since we now create both amd and arm)
+    sha=$(docker manifest inspect $image_name | jq -r '.manifests[] | select(.platform.architecture | contains ("amd")) | .digest')
+    size=$(docker manifest inspect $untagged@$sha | jq -r '.config.size + ([.layers[].size] | add)' )
   else
     size=$(curl --silent ${DOCKERHUB}/${untagged}/tags/${tag} | jq '.full_size') # 227987976
   fi
