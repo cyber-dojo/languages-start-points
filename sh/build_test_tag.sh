@@ -13,16 +13,15 @@ export $(echo_env_vars)
 # - - - - - - - - - - - - - - - - - - - - - - - -
 build_test_tag()
 {
-  local -r image=cyberdojo/languages-start-points
   local -r names="$(cat "$(repo_root)/git_repo_urls.tagged" | tr '\n' ' ')"
 
   # build
-  export GIT_COMMIT_SHA="$(git_commit_sha)"
   $(cyber_dojo) start-point create "$(image_name)" --languages "${names}"
-  unset GIT_COMMIT_SHA
 
   # test
-  assert_equal "$(git_commit_sha)" "$(image_sha)"
+  local -r expected="${CYBER_DOJO_START_POINTS_BASE_SHA}"
+  local -r actual="$(image_base_sha)"
+  assert_equal "${expected}" "${actual}"
 
   # tag
   docker tag "$(image_name):latest" "$(image_name):$(git_commit_tag)"
