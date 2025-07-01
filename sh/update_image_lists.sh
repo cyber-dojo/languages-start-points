@@ -2,10 +2,7 @@
 set -Eeu
 
 readonly MY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-readonly TMP_DIR=$(mktemp -d /tmp/cyber-dojo.languages-start-points.build.XXXXXX)
-readonly TMP_FILE_1=$(mktemp /tmp/cyber-dojo.languages-start-points.build.XXXXXX)
-readonly TMP_FILE_2=$(mktemp /tmp/cyber-dojo.languages-start-points.build.XXXXXX)
-readonly DOCKERHUB=https://hub.docker.com/v2/repositories
+source "${MY_DIR}/update_one_ltf.sh"
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 function remove_tmps()
@@ -14,7 +11,7 @@ function remove_tmps()
    rm "${TMP_FILE_1}" > /dev/null
    rm "${TMP_FILE_2}" > /dev/null
 }
-trap remove_tmps EXIT
+trap remove_tmps INT EXIT
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 declare -ar ALL_URLS=(
@@ -111,67 +108,9 @@ function process_all_urls()
 {
   for i in "${!ALL_URLS[@]}"
   do
-    local url="${ALL_URLS[$i]}"            # https://github.com/cyber-dojo-start-points/csharp-nunit
-    local repo_dir="${TMP_DIR}/${i}"
-    git clone "${url}" "${repo_dir}" > /dev/null 2>&1
-    get_tagged_repo_url "${repo_dir}"
-    get_compressed_image_size "${repo_dir}"
+    local url="${ALL_URLS[$i]}"  # eg https://github.com/cyber-dojo-start-points/csharp-nunit
+    update_one_ltf "${url}"
   done
-}
-
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function get_tagged_repo_url()
-{
-  local -r repo_dir="${1}"
-  local -r sha="$(cd "${repo_dir}" && git rev-parse HEAD)"
-  local -r tag=${sha:0:7}
-  echo "${tag}@${url}" | tee -a "${TMP_FILE_1}"
-}
-
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function get_compressed_image_size()
-{
-  local -r repo_dir="${1}"
-  local size
-
-  local image_name=$(cat "${repo_dir}/start_point/manifest.json" | jq --raw-output '.image_name') # cyberdojofoundation/csharp_nunit:32503c4
-  local untagged="$(echo ${image_name} | awk -F: '{print $(NF-1)}')" # cyberdojofoundation/csharp_nunit
-  local tag="$(echo ${image_name} | awk -F: '{print $(NF)}')"        # 32503c4
-
-  #Since we're in the process of moving images from DockerHub to GHCR, we need to handle both cases
-  if on_GHCR $image_name; then
-    #Get the sha digest for the amd image (since we now create both amd and arm)
-    sha=$(docker manifest inspect $image_name | jq -r '.manifests[] | select(.platform.architecture | contains ("amd")) | .digest')
-    size=$(docker manifest inspect $untagged@$sha | jq -r '.config.size + ([.layers[].size] | add)' )
-  else
-    size=$(curl --silent ${DOCKERHUB}/${untagged}/tags/${tag} | jq '.full_size') # 227987976
-  fi
-
-  local human=$(human_size "${size}")                                                # 217.42 MiB
-  echo "${size} ${image_name} ${human}" | tee -a "${TMP_FILE_2}"
-}
-
-function on_GHCR()
-{
-  local -r image_name="${1}"
-  local start="$(echo ${image_name} | awk -F '/' '{print $1}')"
-  [ "${start}" == "ghcr.io" ]
-
-}
-
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function human_size()
-{
-    local i=${1:-0}
-    local d=""
-    local s=0
-    local S=("Bytes" "KiB" "MiB" "GiB" "TiB" "PiB" "EiB" "YiB" "ZiB")
-    while ((i > 1024 && s < ${#S[@]}-1)); do
-        printf -v d ".%02d" $((i % 1024 * 100 / 1024))
-        i=$((i / 1024))
-        s=$((s + 1))
-    done
-    echo "$i$d ${S[$s]}"
 }
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
