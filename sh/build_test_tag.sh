@@ -5,7 +5,7 @@ repo_root() { git rev-parse --show-toplevel; }
 
 readonly SH_DIR="$(repo_root)/sh"
 readonly TMP_DIR=$(mktemp -d /tmp/cyber-dojo.languages-start-points.XXXXXXXXX)
-trap "rm -rf ${TMP_DIR} > /dev/null" INT EXIT
+trap 'rm -rf ${TMP_DIR} > /dev/null' INT EXIT
 source "${SH_DIR}/lib.sh"
 source "${SH_DIR}/echo_env_vars.sh"
 export $(echo_env_vars)
