@@ -5,7 +5,7 @@ repo_root() { git rev-parse --show-toplevel; }
 
 readonly SH_DIR="$(repo_root)/sh"
 readonly TMP_DIR=$(mktemp -d /tmp/cyber-dojo.languages-start-points.XXXXXXXXX)
-trap "rm -rf ${TMP_DIR} > /dev/null" INT EXIT
+trap 'rm -rf ${TMP_DIR} > /dev/null' INT EXIT
 source "${SH_DIR}/lib.sh"
 source "${SH_DIR}/echo_env_vars.sh"
 export $(echo_env_vars)
@@ -13,7 +13,7 @@ export $(echo_env_vars)
 # - - - - - - - - - - - - - - - - - - - - - - - -
 build_test_tag()
 {
-  local -r names="$(cat "$(repo_root)/git_repo_urls.tagged" | tr '\n' ' ')"
+  local -r names="$(tr '\n' ' ' < "$(repo_root)/git_repo_urls.tagged")"
 
   # build
   $(cyber_dojo) start-point create "$(image_name)" --languages "${names}"
@@ -25,7 +25,11 @@ build_test_tag()
 
   # tag
   docker tag "$(image_name):latest" "$(image_name):$(git_commit_tag)"
-  echo "tagged with :$(git_commit_tag)"
+
+  echo
+  echo "CYBER_DOJO_LANGUAGES_START_POINTS_SHA=$(git_commit_sha)"
+  echo "CYBER_DOJO_LANGUAGES_START_POINTS_TAG=$(git_commit_tag)"
+  echo "$(image_name):$(git_commit_tag)"
 }
 
 
