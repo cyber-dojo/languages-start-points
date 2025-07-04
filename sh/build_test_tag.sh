@@ -13,7 +13,7 @@ export $(echo_env_vars)
 # - - - - - - - - - - - - - - - - - - - - - - - -
 build_test_tag()
 {
-  local -r names="$(cat "$(repo_root)/git_repo_urls.tagged" | tr '\n' ' ')"
+  local -r names="$(tr '\n' ' ' < "$(repo_root)/git_repo_urls.tagged")"
 
   # build
   $(cyber_dojo) start-point create "$(image_name)" --languages "${names}"
