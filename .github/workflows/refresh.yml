@@ -1,0 +1,54 @@
+name: Refresh language-start-points image list
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  setup:
+    runs-on: ubuntu-latest
+    needs: []
+    outputs:
+      branch_name: ${{ steps.vars.outputs.branch_name }}
+    steps:
+      - name: Prepare outputs for workflow jobs
+        id: vars
+        run: |
+          TAG="${GITHUB_SHA:0:7}"
+          echo "branch_name=refresh-language-start-points-list-${TAG}" >> ${GITHUB_OUTPUT}
+
+  refresh:
+    runs-on: ubuntu-latest
+    needs: [ setup ]
+    env:
+      BRANCH_NAME: ${{ needs.setup.outputs.branch_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Create branch
+        run:
+          git checkout -b ${BRANCH_NAME}
+
+      - name: Update language-start-points list
+        run:
+          ./sh/update_image_lists.sh
+
+      - name: Commit
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.event.sender.login }}@users.noreply.github.com"
+          git add .
+          git commit --message "Update language-start-point list"
+          git push --set-upstream origin ${BRANCH_NAME}
+
+      - name: Create pull request
+        env:
+          GH_TOKEN: ${{ secrets.BASE_IMAGE_UPGRADE }}
+        run:
+          gh pr create
+            --base main
+            --head ${BRANCH_NAME}
+            --title 'Merge update-language-start-point image list into main'
+            --body 'Created by Github action'
