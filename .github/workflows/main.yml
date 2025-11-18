@@ -119,15 +119,16 @@ jobs:
           STATUS=$?
           set -e
           echo "STATUS=:${STATUS}:"
+          exit "${STATUS}"
 
       - name: Setup Kosli CLI
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/main' && success() }}
         uses: kosli-dev/setup-cli-action@v2
         with:
           version: ${{ vars.KOSLI_CLI_VERSION }}
 
       - name: Attest evidence to Kosli
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/main' && success() }}
         run:
           kosli attest snyk
             --attachments=.snyk
