@@ -109,17 +109,12 @@ jobs:
       - name: Run Snyk code scan
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: |
-          set +e
-          snyk code test \
-            --policy-path=.snyk \
-            --sarif \
-            --sarif-file-output="${SARIF_FILENAME}" \
+        run: 
+          snyk code test
+            --policy-path=.snyk
+            --sarif
+            --sarif-file-output="${SARIF_FILENAME}"
             .
-          STATUS=$?
-          set -e
-          echo "STATUS=:${STATUS}:"
-          exit "${STATUS}"
 
       - name: Setup Kosli CLI
         if: ${{ github.ref == 'refs/heads/main' && success() }}
