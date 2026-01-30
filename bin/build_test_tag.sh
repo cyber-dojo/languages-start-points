@@ -3,12 +3,12 @@ set -Eeu
 
 repo_root() { git rev-parse --show-toplevel; }
 
-readonly SH_DIR="$(repo_root)/sh"
+readonly BIN_DIR="$(repo_root)/bin"
+source "${BIN_DIR}/lib.sh"
+source "${BIN_DIR}/echo_env_vars.sh"
+export $(echo_env_vars)
 readonly TMP_DIR=$(mktemp -d /tmp/cyber-dojo.languages-start-points.XXXXXXXXX)
 trap 'rm -rf ${TMP_DIR} > /dev/null' INT EXIT
-source "${SH_DIR}/lib.sh"
-source "${SH_DIR}/echo_env_vars.sh"
-export $(echo_env_vars)
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
 build_test_tag()
@@ -27,8 +27,9 @@ build_test_tag()
   docker tag "$(image_name):latest" "$(image_name):$(git_commit_tag)"
 
   echo
-  echo "CYBER_DOJO_LANGUAGES_START_POINTS_SHA=$(git_commit_sha)"
-  echo "CYBER_DOJO_LANGUAGES_START_POINTS_TAG=$(git_commit_tag)"
+  echo "  CYBER_DOJO_LANGUAGES_START_POINTS_SHA=$(git_commit_sha)"
+  echo "  CYBER_DOJO_LANGUAGES_START_POINTS_TAG=$(git_commit_tag)"
+  echo
   echo "$(image_name):$(git_commit_tag)"
 }
 
