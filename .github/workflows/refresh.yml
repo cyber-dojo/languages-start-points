@@ -33,7 +33,7 @@ jobs:
 
       - name: Update language-start-points list
         run:
-          ./sh/update_image_lists.sh
+          ./bin/update_image_lists.sh
 
       - name: Commit
         run: |
