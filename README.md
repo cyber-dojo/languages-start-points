@@ -12,7 +12,7 @@
 
 - Add any new urls to ALL_URLS in [bin/update_image_lists.sh](https://github.com/cyber-dojo/languages-start-points/blob/master/bin/update_image_lists.sh)
 - Run `make update_image_lists` to create up-to-date versions of the two files:
-  - [git_repo_urls.tagged](https://github.com/cyber-dojo/languages-start-points/blob/master/git_repo_urls.tagged) lists all the language-test-framework repositories (each repo contributes one `manifest.json`) to the image.
+  - [git_repo_urls.tagged](https://github.com/cyber-dojo/languages-start-points/blob/master/git_repo_urls.tagged) lists all the language-test-framework repositories (each repo contributes one `manifest.json` to the image).
   - [compressed.image_sizes.sorted](https://github.com/cyber-dojo/languages-start-points/blob/master/compressed.image_sizes.sorted) lists all the images named in these `manifest.json` files, together with their (compressed) sizes, in descending order. Informational only.
 - You can also update these two files via the .github/workflows/refresh.yml workflow
   - This creates a branch that you can then merge into main.
