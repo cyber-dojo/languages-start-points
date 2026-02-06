@@ -10,7 +10,7 @@
 
 <img width="75%" src="https://user-images.githubusercontent.com/252118/97070783-fa349e80-15d2-11eb-85e3-e0a1201be060.png">
 
-- Add any new urls to ALL_URLS in [sh/update_image_lists.sh](https://github.com/cyber-dojo/languages-start-points/blob/master/sh/update_image_lists.sh)
+- Add any new urls to ALL_URLS in [bin/update_image_lists.sh](https://github.com/cyber-dojo/languages-start-points/blob/master/bin/update_image_lists.sh)
 - Run `make update_image_lists` to create up-to-date versions of the two files:
   - [git_repo_urls.tagged](https://github.com/cyber-dojo/languages-start-points/blob/master/git_repo_urls.tagged) lists all the language-test-framework repositories (each repo contributes one `manifest.json`) to the image.
   - [compressed.image_sizes.sorted](https://github.com/cyber-dojo/languages-start-points/blob/master/compressed.image_sizes.sorted) lists all the images named in these `manifest.json` files, together with their (compressed) sizes, in descending order. Informational only.
