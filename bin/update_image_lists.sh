@@ -77,7 +77,6 @@ declare -ar ALL_URLS=(
   https://github.com/cyber-dojo-start-points/jq-approvals
   https://github.com/cyber-dojo-start-points/kotlin-test
   https://github.com/cyber-dojo-start-points/nasm-assert
-  https://github.com/cyber-dojo-start-points/pascal-assert
   https://github.com/cyber-dojo-start-points/perl-testsimple
   https://github.com/cyber-dojo-start-points/php-unit
   https://github.com/cyber-dojo-start-points/prolog-plunit
