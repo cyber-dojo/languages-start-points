@@ -1,8 +1,6 @@
 bf0075f@https://github.com/cyber-dojo-start-points/bash-bats
 f8a8a41@https://github.com/cyber-dojo-start-points/bash-shunit2
 ce0dd0a@https://github.com/cyber-dojo-start-points/bash-unit
-ccd9e13@https://github.com/cyber-dojo-start-points/bcpl-alltestspassed
-6afd9d0@https://github.com/cyber-dojo-start-points/chapel-assert
 95f9402@https://github.com/cyber-dojo-start-points/clang-assert
 304885a@https://github.com/cyber-dojo-start-points/clang-cgreen
 03e9cea@https://github.com/cyber-dojo-start-points/clangplusplus-assert
@@ -19,7 +17,7 @@ f976f6f@https://github.com/cyber-dojo-start-points/coffeescript-jasmine
 95277ec@https://github.com/cyber-dojo-start-points/csharp-specflow
 eab3fb4@https://github.com/cyber-dojo-start-points/dee-unittest
 89c8798@https://github.com/cyber-dojo-start-points/elixir-exunit
-bb5ab59@https://github.com/cyber-dojo-start-points/erlang-eunit
+3be05fa@https://github.com/cyber-dojo-start-points/erlang-eunit
 38ea34e@https://github.com/cyber-dojo-start-points/fortran-funit
 91d941d@https://github.com/cyber-dojo-start-points/fsharp-nunit
 3520429@https://github.com/cyber-dojo-start-points/gcc-assert
@@ -57,7 +55,7 @@ ff4fe80@https://github.com/cyber-dojo-start-points/javascript-jest
 0e8168e@https://github.com/cyber-dojo-start-points/javascript-mocha-chai-sinon
 00dc304@https://github.com/cyber-dojo-start-points/javascript-qunit-sinon
 1fb024f@https://github.com/cyber-dojo-start-points/julia-test
-a588f88@https://github.com/cyber-dojo-start-points/jq-approvals
+f220b28@https://github.com/cyber-dojo-start-points/jq-approvals
 b5339fc@https://github.com/cyber-dojo-start-points/kotlin-test
 b95c720@https://github.com/cyber-dojo-start-points/nasm-assert
 3c2a23f@https://github.com/cyber-dojo-start-points/perl-testsimple
