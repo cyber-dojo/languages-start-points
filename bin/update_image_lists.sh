@@ -18,8 +18,6 @@ declare -ar ALL_URLS=(
   https://github.com/cyber-dojo-start-points/bash-bats
   https://github.com/cyber-dojo-start-points/bash-shunit2
   https://github.com/cyber-dojo-start-points/bash-unit
-  https://github.com/cyber-dojo-start-points/bcpl-alltestspassed
-  https://github.com/cyber-dojo-start-points/chapel-assert
   https://github.com/cyber-dojo-start-points/clang-assert
   https://github.com/cyber-dojo-start-points/clang-cgreen
   https://github.com/cyber-dojo-start-points/clangplusplus-assert
