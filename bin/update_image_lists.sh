@@ -31,7 +31,7 @@ declare -ar ALL_URLS=(
   https://github.com/cyber-dojo-start-points/coffeescript-jasmine
   https://github.com/cyber-dojo-start-points/csharp-moq
   https://github.com/cyber-dojo-start-points/csharp-nunit
-  https://github.com/cyber-dojo-start-points/csharp-specflow
+  https://github.com/cyber-dojo-start-points/csharp-reqnroll
   https://github.com/cyber-dojo-start-points/dee-unittest
   https://github.com/cyber-dojo-start-points/elixir-exunit
   https://github.com/cyber-dojo-start-points/erlang-eunit
