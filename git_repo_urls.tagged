@@ -1,6 +1,6 @@
 62d4547@https://github.com/cyber-dojo-start-points/bash-bats
 505e377@https://github.com/cyber-dojo-start-points/bash-shunit2
-ce0dd0a@https://github.com/cyber-dojo-start-points/bash-unit
+6011b21@https://github.com/cyber-dojo-start-points/bash-unit
 95f9402@https://github.com/cyber-dojo-start-points/clang-assert
 304885a@https://github.com/cyber-dojo-start-points/clang-cgreen
 03e9cea@https://github.com/cyber-dojo-start-points/clangplusplus-assert
@@ -57,12 +57,12 @@ ff4fe80@https://github.com/cyber-dojo-start-points/javascript-jest
 1fb024f@https://github.com/cyber-dojo-start-points/julia-test
 f220b28@https://github.com/cyber-dojo-start-points/jq-approvals
 b5339fc@https://github.com/cyber-dojo-start-points/kotlin-test
-b95c720@https://github.com/cyber-dojo-start-points/nasm-assert
+7c0450e@https://github.com/cyber-dojo-start-points/nasm-assert
 3c2a23f@https://github.com/cyber-dojo-start-points/perl-testsimple
 9b73fe9@https://github.com/cyber-dojo-start-points/php-unit
-82d013d@https://github.com/cyber-dojo-start-points/prolog-plunit
-b48dd3f@https://github.com/cyber-dojo-start-points/python-approval-pytest
-42cc188@https://github.com/cyber-dojo-start-points/python-approval-unittest
+640e4df@https://github.com/cyber-dojo-start-points/prolog-plunit
+5bb0a02@https://github.com/cyber-dojo-start-points/python-approval-pytest
+2fe7cef@https://github.com/cyber-dojo-start-points/python-approval-unittest
 cc6b832@https://github.com/cyber-dojo-start-points/python-assert
 b131d43@https://github.com/cyber-dojo-start-points/python-behave
 084e5f3@https://github.com/cyber-dojo-start-points/python-pytest
@@ -74,7 +74,7 @@ f6c4df8@https://github.com/cyber-dojo-start-points/rescript-jest
 86839dd@https://github.com/cyber-dojo-start-points/ruby-minitest
 0a27dd6@https://github.com/cyber-dojo-start-points/ruby-rspec
 22e6da1@https://github.com/cyber-dojo-start-points/ruby-testunit
-edf1a37@https://github.com/cyber-dojo-start-points/rust-test
+99eac27@https://github.com/cyber-dojo-start-points/rust-test
 a65390c@https://github.com/cyber-dojo-start-points/swift-swordfish
 f460d0c@https://github.com/cyber-dojo-start-points/swift-xctest
 d1152f3@https://github.com/cyber-dojo-start-points/typescript-jest
