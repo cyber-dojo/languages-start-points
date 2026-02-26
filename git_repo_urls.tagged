@@ -13,8 +13,8 @@ f70c781@https://github.com/cyber-dojo-start-points/clangplusplus-igloo
 fe7dcb6@https://github.com/cyber-dojo-start-points/clojure-test
 f976f6f@https://github.com/cyber-dojo-start-points/coffeescript-jasmine
 8ca2f4a@https://github.com/cyber-dojo-start-points/csharp-moq
-81d79ea@https://github.com/cyber-dojo-start-points/csharp-nunit
-0066c28@https://github.com/cyber-dojo-start-points/csharp-reqnroll
+d6cc015@https://github.com/cyber-dojo-start-points/csharp-nunit
+1dfefa1@https://github.com/cyber-dojo-start-points/csharp-reqnroll
 eab3fb4@https://github.com/cyber-dojo-start-points/dee-unittest
 89c8798@https://github.com/cyber-dojo-start-points/elixir-exunit
 3be05fa@https://github.com/cyber-dojo-start-points/erlang-eunit
@@ -43,7 +43,7 @@ f7961aa@https://github.com/cyber-dojo-start-points/groovy-spock
 b1724c6@https://github.com/cyber-dojo-start-points/java-cucumberpico
 400dba7@https://github.com/cyber-dojo-start-points/java-cucumberspring
 b913782@https://github.com/cyber-dojo-start-points/java-jmock
-ec16a21@https://github.com/cyber-dojo-start-points/java-junit
+7639924@https://github.com/cyber-dojo-start-points/java-junit
 206ffa3@https://github.com/cyber-dojo-start-points/java-mockito
 6c2e1c0@https://github.com/cyber-dojo-start-points/java-powermockito
 57c05f6@https://github.com/cyber-dojo-start-points/java-sqlite
@@ -69,11 +69,11 @@ b131d43@https://github.com/cyber-dojo-start-points/python-behave
 1bd471b@https://github.com/cyber-dojo-start-points/python-unittest
 61e0ef8@https://github.com/cyber-dojo-start-points/r-runit
 f6c4df8@https://github.com/cyber-dojo-start-points/rescript-jest
-65630fc@https://github.com/cyber-dojo-start-points/ruby-approval
-27f67b4@https://github.com/cyber-dojo-start-points/ruby-cucumber
-86839dd@https://github.com/cyber-dojo-start-points/ruby-minitest
-0a27dd6@https://github.com/cyber-dojo-start-points/ruby-rspec
-22e6da1@https://github.com/cyber-dojo-start-points/ruby-testunit
+c33b5a4@https://github.com/cyber-dojo-start-points/ruby-approval
+9e2e607@https://github.com/cyber-dojo-start-points/ruby-cucumber
+827f063@https://github.com/cyber-dojo-start-points/ruby-minitest
+47086e0@https://github.com/cyber-dojo-start-points/ruby-rspec
+f94ac3f@https://github.com/cyber-dojo-start-points/ruby-testunit
 99eac27@https://github.com/cyber-dojo-start-points/rust-test
 a65390c@https://github.com/cyber-dojo-start-points/swift-swordfish
 f460d0c@https://github.com/cyber-dojo-start-points/swift-xctest
