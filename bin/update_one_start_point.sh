@@ -1,21 +1,28 @@
 #!/usr/bin/env bash
 set -Eeu
 
-readonly TMP_DIR=$(mktemp -d /tmp/cyber-dojo.languages-start-points.build.XXXXXX)
-readonly TMP_FILE_1=$(mktemp /tmp/cyber-dojo.languages-start-points.build.XXXXXX)
-readonly TMP_FILE_2=$(mktemp /tmp/cyber-dojo.languages-start-points.build.XXXXXX)
+MY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${MY_DIR}/lib.sh"
+
 readonly DOCKERHUB=https://hub.docker.com/v2/repositories
+readonly TMP_DIR=$(mktemp -d /tmp/cyber-dojo.languages-start-points.build.XXXXXX)
+
+function remove_tmps()
+{
+   rm -rf "${TMP_DIR}" > /dev/null
+}
+trap remove_tmps INT EXIT
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-show_help()
+function show_help()
 {
     local -r MY_NAME=$(basename "${BASH_SOURCE[0]}")
     cat <<- EOF
 
-    Use: ${MY_NAME} [GIT-REPO-URL]
+    Use: ${MY_NAME} [START-POINT-NAME]
 
     Example:
-      \$ ./sh/${MY_NAME} https://github.com/cyber-dojo-start-points/gcc-assert
+      \$ ./sh/${MY_NAME} gcc-assert
       80c713e@https://github.com/cyber-dojo-start-points/gcc-assert
       121608680 ghcr.io/cyber-dojo-languages/gcc_assert:98e787d 115.97 MiB
 
@@ -23,7 +30,7 @@ EOF
 }
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-check_args()
+function check_args()
 {
   case "${1:-}" in
     '-h' | '--help')
@@ -32,66 +39,48 @@ check_args()
       ;;
     '')
       show_help
-      stderr "no argument - must be git repo URL"
+      stderr "no argument - must be name of https://github.com/cyber-dojo-start-points repo"
       exit_non_zero
       ;;
   esac
 }
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-stderr()
+function update_one_start_point()
 {
-  local -r message="${1}"
-  >&2 echo "ERROR: ${message}"
-}
-
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-exit_non_zero()
-{
-  kill -INT $$
-}
-
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function remove_tmps()
-{
-   rm -rf "${TMP_DIR}" > /dev/null
-   rm "${TMP_FILE_1}" > /dev/null
-   rm "${TMP_FILE_2}" > /dev/null
-}
-trap remove_tmps EXIT
-
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function update_one_ltf()
-{
-  local -r url="${1}"  # eg https://github.com/cyber-dojo-start-points/csharp-nunit
+  local -r name="${1}" # eg csharp-nunit
+  local -r url="https://github.com/cyber-dojo-start-points/${1}"
   local repo_dir="${TMP_DIR}"
   rm -rf "${repo_dir}"
   mkdir "${repo_dir}"
   git clone "${url}" "${repo_dir}" > /dev/null 2>&1
-  get_tagged_repo_url "${repo_dir}"
-  get_compressed_image_size "${repo_dir}"
+  get_tagged_repo_url "${name}" "${repo_dir}"
+  get_compressed_image_size "${name}" "${repo_dir}"
 }
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 function get_tagged_repo_url()
 {
-  local -r repo_dir="${1}"
+  local -r name="${1}"
+  local -r repo_dir="${2}"
   local -r sha="$(cd "${repo_dir}" && git rev-parse HEAD)"
   local -r tag=${sha:0:7}
-  echo "${tag}@${url}" | tee -a "${TMP_FILE_1}"
+  echo "${tag}@${url}" | tee  "${MY_DIR}/../data/${name}/git_repo.url"
 }
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 function get_compressed_image_size()
 {
-  local -r repo_dir="${1}"
+  local -r name="${1}"
+  local -r repo_dir="${2}"
 
   local -r filename="${repo_dir}/start_point/manifest.json"
-  local -r image_name=$(jq --raw-output '.image_name' "${filename}")      # cyberdojofoundation/csharp_nunit:32503c4
-  local -r untagged="$(echo "${image_name}" | awk -F: '{print $(NF-1)}')" # cyberdojofoundation/csharp_nunit
-  local -r tag="$(echo "${image_name}" | awk -F: '{print $(NF)}')"        # 32503c4
+  local -r image_name=$(jq --raw-output '.image_name' "${filename}")      # Eg ghcr.io/cyber-dojo-languages/csharp_nunit:70e19ed
+  local -r untagged="$(echo "${image_name}" | awk -F: '{print $(NF-1)}')" # Eg ghcr.io/cyber-dojo-languages/csharp_nunit
+  local -r tag="$(echo "${image_name}" | awk -F: '{print $(NF)}')"        # Eg 70e19ed
 
-  # Since we're in the process of moving images from DockerHub to GHCR, we need to handle both cases
+  # Since we're in the process of moving images from DockerHub to GHCR, 
+  # we need to handle both cases
   local size
   if on_GHCR "${image_name}"; then
     # Get the sha digest for the amd image (since we now create both amd and arm)
@@ -102,9 +91,10 @@ function get_compressed_image_size()
   fi
 
   local -r human=$(human_size "${size}")                                           # 217.42 MiB
-  echo "${size} ${image_name} ${human}" | tee -a "${TMP_FILE_2}"
+  echo "${size} ${image_name} ${human}" | tee "${MY_DIR}/../data/${name}/compressed_image.size"
 }
 
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 function on_GHCR()
 {
   local -r image_name="${1}"
@@ -124,12 +114,11 @@ function human_size()
         i=$((i / 1024))
         s=$((s + 1))
     done
-    echo "$i$d ${S[$s]}"
+    echo "${i}${d} ${S[$s]}"
 }
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 if [ "${0}" = "${BASH_SOURCE[0]}" ]; then
     check_args "$@"
-    update_one_ltf "${1}"
+    update_one_start_point "${1}"
 fi

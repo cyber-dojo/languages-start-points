@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 set -Eeu
 
-repo_root() { git rev-parse --show-toplevel; }
-
-readonly BIN_DIR="$(repo_root)/bin"
+BIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${BIN_DIR}/lib.sh"
 source "${BIN_DIR}/echo_env_vars.sh"
 export $(echo_env_vars)
@@ -11,7 +9,7 @@ readonly TMP_DIR=$(mktemp -d /tmp/cyber-dojo.languages-start-points.XXXXXXXXX)
 trap 'rm -rf ${TMP_DIR} > /dev/null' INT EXIT
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
-build_test_tag()
+function build_test_tag()
 {
   local -r names="$(tr '\n' ' ' < "$(repo_root)/git_repo_urls.tagged")"
 
@@ -38,20 +36,19 @@ build_test_tag()
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
-assert_equal()
+function assert_equal()
 {
   local -r expected="${1}"
   local -r actual="${2}"
   if [ "${expected}" != "${actual}" ]; then
-    echo ERROR
-    echo "expected:'${expected}'"
-    echo "  actual:'${actual}'"
-    exit 42
+    stderr "expected:'${expected}'"
+    stderr "  actual:'${actual}'"
+    exit_non_zero
   fi
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
-cyber_dojo()
+function cyber_dojo()
 {
   local -r name=cyber-dojo
   if [ -x "$(command -v ${name})" ]; then
@@ -68,4 +65,6 @@ cyber_dojo()
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
-build_test_tag
+if [ "${0}" = "${BASH_SOURCE[0]}" ]; then
+  build_test_tag
+fi
