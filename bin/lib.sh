@@ -1,23 +1,39 @@
 #!/usr/bin/env bash
 set -Eeu
 
-git_commit_sha()
+function repo_root()
+{ 
+  git rev-parse --show-toplevel
+}
+
+function git_commit_sha()
 {
   git rev-parse HEAD
 }
 
-git_commit_tag()
+function git_commit_tag()
 {
   local -r sha="$(git_commit_sha)"
   echo "${sha:0:7}"
 }
 
-image_name()
+function image_name()
 {
   echo "${CYBER_DOJO_LANGUAGES_START_POINTS_IMAGE}"
 }
 
-image_base_sha()
+function image_base_sha()
 {
   docker run --rm $(image_name) sh -c 'echo ${CYBER_DOJO_START_POINTS_BASE_SHA}'
+}
+
+function exit_non_zero()
+{
+  kill -INT $$
+}
+
+function stderr()
+{
+  local -r message="${1}"
+  >&2 echo "ERROR: ${message}"
 }

@@ -2,10 +2,14 @@
 SHORT_SHA := $(shell git rev-parse HEAD | head -c7)
 IMAGE_NAME := cyberdojo/languages-start-points:${SHORT_SHA}
 
-.PHONY: update_image_lists image snyk-container snyk-code
+.PHONY: update_all_start_points image concat_all_start_points snyk-container snyk-code
 
-update_image_lists:
-	${PWD}/bin/update_image_lists.sh
+all_start_points:
+	${PWD}/bin/update_all_start_points.sh
+	${PWD}/bin/concat_all_start_points.sh
+
+concat_all_start_points:
+	${PWD}/bin/concat_all_start_points.sh
 
 image:
 	${PWD}/bin/build_test_tag.sh

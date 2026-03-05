@@ -1,4 +1,4 @@
-[![Github Action (main)](https://github.com/cyber-dojo/languages-start-points/actions/workflows/main.yml/badge.svg)](https://github.com/cyber-dojo/languages-start-points/actions)
+[![GitHub CI](../../actions/workflows/main.yml/badge.svg)](../../actions/workflows/main.yml)
 
 - A [docker-containerized](https://registry.hub.docker.com/r/cyberdojo/languages-start-points) micro-service for [https://cyber-dojo.org](http://cyber-dojo.org).
 - The data source for the `choose a language & test-framework` page.
@@ -10,15 +10,15 @@
 
 <img width="75%" src="https://user-images.githubusercontent.com/252118/97070783-fa349e80-15d2-11eb-85e3-e0a1201be060.png">
 
-- Add any new urls to ALL_URLS in [bin/update_image_lists.sh](https://github.com/cyber-dojo/languages-start-points/blob/master/bin/update_image_lists.sh)
-- Run `make update_image_lists` to create up-to-date versions of the two files:
-  - [git_repo_urls.tagged](https://github.com/cyber-dojo/languages-start-points/blob/master/git_repo_urls.tagged) lists all the language-test-framework repositories (each repo contributes one `manifest.json` to the image).
-  - [compressed.image_sizes.sorted](https://github.com/cyber-dojo/languages-start-points/blob/master/compressed.image_sizes.sorted) lists all the images named in these `manifest.json` files, together with their (compressed) sizes, in descending order. Informational only.
-- You can also update these two files via the .github/workflows/refresh.yml workflow
+- Add any new start-points to the ALL_START_POINTS array in [bin/all_start_points.sh](bin/all_start_points.sh)
+- Run `make all_start_points` to create an up-to-date version of [git_repo_urls.tagged](git_repo_urls.tagged) which lists all the [cyber-dojo-start-points](https://github.com/cyber-dojo-start-points) repositories (each start-point repo contributes one `manifest.json` to the image).
+- You can also update `git_repo_urls.tagged` via the [.github/workflows/refresh.yml](https://github.com/cyber-dojo/languages-start-points/blob/main/.github/workflows/refresh.yml) workflow.
   - This creates a branch that you can then merge into main.
+- If you only have one start-point to update:
+  - Run `./bin/update_one_start_point.sh [NAME]`
+  - This updates files in the `data/[NAME]/` dir
+  - Then run `make concat_all_start_points`
 - Run the `make image` to build the image from `git_repo_urls.tagged` for local development/testing.
-- Create a branch, commit and push. The resulting image's dockerhub registry is  [cyberdojo/languages-start-points](https://hub.docker.com/r/cyberdojo/languages-start-points/tags)
-
 
 ***
 
