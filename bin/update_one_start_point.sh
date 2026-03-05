@@ -19,10 +19,18 @@ function show_help()
     local -r MY_NAME=$(basename "${BASH_SOURCE[0]}")
     cat <<- EOF
 
-    Use: ${MY_NAME} [START-POINT-NAME]
+    Use: ./bin/${MY_NAME} [START-POINT-NAME]
+
+    Updates the file data/[START-POINT-NAME]/git_repo.url
+    so its contents reflect the most recent version of 
+    https://github.com/cyber-dojo-start-points/START-POINT-NAME
+
+    Typically followed by:
+    \$ make concat_all_start_points
+    \$ make image
 
     Example:
-      \$ ./sh/${MY_NAME} gcc-assert
+      \$ ./bin/${MY_NAME} gcc-assert
       80c713e@https://github.com/cyber-dojo-start-points/gcc-assert
       121608680 ghcr.io/cyber-dojo-languages/gcc_assert:98e787d 115.97 MiB
 
