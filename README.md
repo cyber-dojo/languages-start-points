@@ -12,11 +12,11 @@
 
 - Add any new start-points to the ALL_START_POINTS array in [bin/all_start_points.sh](bin/all_start_points.sh)
 - Run `make all_start_points` to create an up-to-date version of [git_repo_urls.tagged](git_repo_urls.tagged) which lists all the [cyber-dojo-start-points](https://github.com/cyber-dojo-start-points) repositories (each start-point repo contributes one `manifest.json` to the image).
-- You can also update `git_repo_urls.tagged` via the [.github/workflows/refresh.yml](https://github.com/cyber-dojo/languages-start-points/blob/main/.github/workflows/refresh.yml) workflow.
+- You can also update `git_repo_urls.tagged` via the [.github/workflows/refresh.yml](.github/workflows/refresh.yml) workflow.
   - This creates a branch that you can then merge into main.
 - If you only have one start-point to update:
   - Run `./bin/update_one_start_point.sh [NAME]`
-  - This updates files in the `data/[NAME]/` dir
+  - This updates files `data/[NAME]/git_repo.url` 
   - Then run `make concat_all_start_points`
 - Run the `make image` to build the image from `git_repo_urls.tagged` for local development/testing.
 
@@ -35,7 +35,7 @@ Eg, this command uses the [cyber-dojo](https://github.com/cyber-dojo/commander/b
         3663c6f@https://github.com/cyber-dojo-start-points/ruby-testunit
 ```
 
-Eg, this command uses the [cyber-dojo](https://github.com/cyber-dojo/commander/blob/master/cyber-dojo) bash script to create an (untagged) start-point image for all test-frameworks in all languages:
+Eg, this command uses the [cyber-dojo](https://github.com/cyber-dojo/commander/blob/master/cyber-dojo) bash script to create an start-point image for all test-frameworks in all languages:
 ```bash
   cyber-dojo start-point create cyberdojo/languages-start-points \
     --languages \
