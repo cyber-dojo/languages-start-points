@@ -8,11 +8,58 @@ export $(echo_env_vars)
 readonly TMP_DIR=$(mktemp -d /tmp/cyber-dojo.languages-start-points.XXXXXXXXX)
 trap 'rm -rf ${TMP_DIR} > /dev/null' INT EXIT
 
-# - - - - - - - - - - - - - - - - - - - - - - - -
-function build_from_one_start_point()
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function show_help()
 {
-  local -r name="${1}" # eg gcc-assert
-  local -r url="$(cat "$(repo_root)/data/${name}/git_repo.url")"
+    local -r MY_NAME=$(basename "${BASH_SOURCE[0]}")
+    cat <<- EOF
+
+    Use: ./bin/${MY_NAME} [DIR]
+
+    Creates a languages-start-point image containing the single
+    start-point in [DIR]. The tag of the created image
+    will be the short-sha of this languages-start-points repo.
+
+    Often followed by running a local demo using the languages-start-point 
+    image by:
+    - moving to the web repo 
+    - adding the two printed echo commands to the end of the echo_env_vars() 
+      function in bin/echo_env_vars.sh 
+    - make demo
+
+    Example:
+      \$ ./bin/${MY_NAME} /Users/jonjagger/repos/cyber-dojo-start-points/gcc-assert
+      ...
+      git clone file:///Users/jonjagger/repos/cyber-dojo-start-points/gcc-assert
+      git checkout 3520429
+      --languages 3520429@file:///Users/jonjagger/repos/cyber-dojo-start-points/gcc-assert
+      Successfully built cyberdojo/languages-start-points
+
+        echo CYBER_DOJO_LANGUAGES_START_POINTS_SHA=28ee25583a31b319da305ccab1b7311613e2a915
+        echo CYBER_DOJO_LANGUAGES_START_POINTS_TAG=28ee255
+
+      cyberdojo/languages-start-points:28ee255
+
+EOF
+}
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function check_args()
+{
+  case "${1:-}" in
+    '-h' | '--help')
+      show_help
+      exit 0
+      ;;
+  esac
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - -
+function build_from_one_local_start_point()
+{
+  local -r dir="${1}" # /Users/jonjagger/repos/cyber-dojo-start-points/gcc-assert
+  local -r head_sha="$(echo_head_sha "${dir}")"
+  local -r url="${head_sha}@file://${dir}"
 
   # Ensure latest env-vars are tunnelled into cyber_dojo -> cyber_dojo_inner script.
   export $(docker run --rm cyberdojo/versioner:latest)
@@ -35,6 +82,12 @@ function build_from_one_start_point()
   echo "$(image_name):$(git_commit_tag)"
 }
 
+# - - - - - - - - - - - - - - - - - - - - - - - -
+function echo_head_sha()
+{
+  local -r dir="${1}"
+  echo "$(cd "${dir}" && git rev-parse --short HEAD)"
+}
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
 function assert_equal()
@@ -67,5 +120,6 @@ function cyber_dojo()
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
 if [ "${0}" = "${BASH_SOURCE[0]}" ]; then
-  build_from_one_start_point "$@"
+  check_args "$@"
+  build_from_one_local_start_point "$@"
 fi

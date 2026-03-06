@@ -8,16 +8,67 @@ export $(echo_env_vars)
 readonly TMP_DIR=$(mktemp -d /tmp/cyber-dojo.languages-start-points.XXXXXXXXX)
 trap 'rm -rf ${TMP_DIR} > /dev/null' INT EXIT
 
-# - - - - - - - - - - - - - - - - - - - - - - - -
-function build_test_tag()
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function show_help()
 {
-  local -r names="$(tr '\n' ' ' < "$(repo_root)/git_repo_urls.tagged")"
+    local -r MY_NAME=$(basename "${BASH_SOURCE[0]}")
+    cat <<- EOF
+
+    Use: ./bin/${MY_NAME} [DIR]
+
+    Creates a languages-start-point image containing the single
+    start-point specified in the file data/DIR/git_repo.url 
+    The tag of the created image will be the short-sha of this 
+    languages-start-points repo.
+
+    Can be followed by running a local demo using the languages-start-point
+    image by:
+    - moving to the web repo 
+    - adding the two printed echo commands to the end of the echo_env_vars() 
+      function in bin/echo_env_vars.sh 
+    - make demo
+
+    Example:
+      \$ cat data/gcc-assert/git_repo.url
+      3520429@https://github.com/cyber-dojo-start-points/gcc-assert
+
+      \$ ./bin/${MY_NAME} gcc-assert
+      ...
+      git clone https://github.com/cyber-dojo-start-points/gcc-assert
+      git checkout 3520429
+      --languages 3520429@https://github.com/cyber-dojo-start-points/gcc-assert
+      Successfully built cyberdojo/languages-start-points
+
+        echo CYBER_DOJO_LANGUAGES_START_POINTS_SHA=28ee25583a31b319da305ccab1b7311613e2a915
+        echo CYBER_DOJO_LANGUAGES_START_POINTS_TAG=28ee255
+
+      cyberdojo/languages-start-points:28ee255
+
+EOF
+}
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+function check_args()
+{
+  case "${1:-}" in
+    '-h' | '--help')
+      show_help
+      exit 0
+      ;;
+  esac
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - -
+function build_from_one_github_start_point()
+{
+  local -r name="${1}" # eg gcc-assert
+  local -r url="$(cat "$(repo_root)/data/${name}/git_repo.url")"
 
   # Ensure latest env-vars are tunnelled into cyber_dojo -> cyber_dojo_inner script.
   export $(docker run --rm cyberdojo/versioner:latest)
 
   # build
-  $(cyber_dojo) start-point create "$(image_name)" --languages "${names}"
+  $(cyber_dojo) start-point create "$(image_name)" --languages "${url}"
 
   # test
   local -r expected="${CYBER_DOJO_START_POINTS_BASE_SHA}"
@@ -66,5 +117,6 @@ function cyber_dojo()
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
 if [ "${0}" = "${BASH_SOURCE[0]}" ]; then
-  build_test_tag
+  check_args "$@"
+  build_from_one_github_start_point "$@"
 fi
