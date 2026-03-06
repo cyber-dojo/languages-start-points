@@ -12,7 +12,7 @@ concat_all_start_points:
 	${PWD}/bin/concat_all_start_points.sh
 
 image:
-	${PWD}/bin/build_test_tag.sh
+	${PWD}/bin/build_image.sh
 
 snyk-container: 
 	snyk container test ${IMAGE_NAME} \
