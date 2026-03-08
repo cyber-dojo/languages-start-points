@@ -2,18 +2,14 @@
 
 - A [docker-containerized](https://registry.hub.docker.com/r/cyberdojo/languages-start-points) micro-service for [https://cyber-dojo.org](http://cyber-dojo.org).
 - The data source for the `choose a language & test-framework` page.
-- Demonstrates a [Kosli](https://www.kosli.com/) instrumented [GitHub CI workflow](https://app.kosli.com/cyber-dojo/flows/languages-start-points-ci/trails/) 
-  deploying, with Continuous Compliance, to its [staging](https://app.kosli.com/cyber-dojo/environments/aws-beta/snapshots/) AWS environment.
-- Deployment to its [production](https://app.kosli.com/cyber-dojo/environments/aws-prod/snapshots/) AWS environment is via a separate [promotion workflow](https://github.com/cyber-dojo/aws-prod-co-promotion).
-- Uses attestation patterns from https://www.kosli.com/blog/using-kosli-attest-in-github-action-workflows-some-tips/
 
 ![Screenshot](https://github.com/cyber-dojo/languages-start-points/blob/main/docs/screen_shot.png)
 
 ***
 
 A languages-start-points image provides an API for the language+test+frameworks
-you choose from when setting up a practice session in cyber-dojo.
-For example, in the image above, `Python 3.14.3, pytest 9.0.2` is selected.
+you choose from when setting up a practice session in [cyber-dojo](https://cyber-dojo.org)
+For example, in the screenshot above, `Python 3.14.3, pytest 9.0.2` is selected.
 
 The source for the Python,pytest start point is in the GitHub repo
 [cyber-dojo-languages/python-pytest](https://github.com/cyber-dojo-languages/python-pytest)
@@ -28,7 +24,7 @@ The following cyber-dojo [CLI](https://github.com/cyber-dojo/commander/blob/mast
    Successfully created only-python-pytest
 ```
 
-The `--languages` flag can be repeated. For example, the following command creates a
+The `--languages` flag can be repeated. The following command creates a
 languages-start-points image called `ruby-ruby-ruby` serving start-points for three Ruby test-frameworks:
 
 ```bash
@@ -41,7 +37,7 @@ languages-start-points image called `ruby-ruby-ruby` serving start-points for th
    Successfully created ruby-ruby-ruby
 ```
 
-The next example creates a languages-start-points image called `csharp-nunit-dev` from a local clone of 
+The next example creates a languages-start-points image called `csharp-nunit-dev` from a _local_ clone of 
 [https://github.com/cyber-dojo-start-points/csharp-nunit](https://github.com/cyber-dojo-start-points/csharp-nunit):
 
 ```bash
@@ -52,7 +48,7 @@ The next example creates a languages-start-points image called `csharp-nunit-dev
    Successfully created create csharp-nunit-dev
 ```
 
-To bring up a cyber-dojo server (http://localhost:80) using this image:
+To bring up a cyber-dojo server `http://localhost:80` using this image:
 
 ```bash
    $ cyber-dojo up --languages=csharp-nunit-dev
@@ -85,9 +81,14 @@ To bring up a cyber-dojo server (http://localhost:80) using this image:
 The script `bin/concat_all_start_points.sh` creates the file
 The `git_repo_urls.tagged` by reading all `data/*/git_repo.url` files.
 
+``bash
+  $ cat data/python-behave/git_repo.url
+  f331e88@https://github.com/cyber-dojo-start-points/python-behave
+```
+
 ***
 
-Main workflow
+# Main workflow
 
 - Add any new start-points to the ALL_START_POINTS array in [bin/all_start_points.sh](bin/all_start_points.sh)
 - Run `make all_start_points` to create an up-to-date version of [git_repo_urls.tagged](git_repo_urls.tagged) which lists all the [cyber-dojo-start-points](https://github.com/cyber-dojo-start-points) repositories (each start-point repo contributes one `manifest.json` to the image).
@@ -104,3 +105,11 @@ Main workflow
 
 ![cyber-dojo.org home page](https://github.com/cyber-dojo/cyber-dojo/blob/master/shared/home_page_snapshot.png)
 
+***
+
+# Kosli
+
+- Demonstrates a [Kosli](https://www.kosli.com/) instrumented [GitHub CI workflow](https://app.kosli.com/cyber-dojo/flows/languages-start-points-ci/trails/) 
+  deploying, with Continuous Compliance, to its [staging](https://app.kosli.com/cyber-dojo/environments/aws-beta/snapshots/) AWS environment.
+- Deployment to its [production](https://app.kosli.com/cyber-dojo/environments/aws-prod/snapshots/) AWS environment is via a separate [promotion workflow](https://github.com/cyber-dojo/aws-prod-co-promotion).
+- Uses attestation patterns from https://www.kosli.com/blog/using-kosli-attest-in-github-action-workflows-some-tips/
