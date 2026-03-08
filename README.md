@@ -1,15 +1,14 @@
 [![GitHub CI](../../actions/workflows/main.yml/badge.svg)](../../actions/workflows/main.yml)
 
-- A [docker-containerized](https://registry.hub.docker.com/r/cyberdojo/languages-start-points) micro-service for [https://cyber-dojo.org](http://cyber-dojo.org).
-- The data source for the `choose a language & test-framework` page.
+A [docker-containerized](https://registry.hub.docker.com/r/cyberdojo/languages-start-points) micro-service for [https://cyber-dojo.org](http://cyber-dojo.org) which serves this page:
 
 ![Screenshot](https://github.com/cyber-dojo/languages-start-points/blob/main/docs/screen_shot.png)
 
-***
 
-A languages-start-points image provides an API for the language+test+frameworks
+A languages-start-points image provides an API for the language & test-frameworks
 you choose from when setting up a practice session in [cyber-dojo](https://cyber-dojo.org)
-For example, in the screenshot above, `Python 3.14.3, pytest 9.0.2` is selected.
+
+In the screenshot above, `Python 3.14.3, pytest 9.0.2` is selected.
 
 The source for the Python,pytest start point is in the GitHub repo
 [cyber-dojo-languages/python-pytest](https://github.com/cyber-dojo-languages/python-pytest)
@@ -37,7 +36,7 @@ languages-start-points image called `ruby-ruby-ruby` serving start-points for th
    Successfully created ruby-ruby-ruby
 ```
 
-The next example creates a languages-start-points image called `csharp-nunit-dev` from a _local_ clone of 
+The next command creates a languages-start-points image called `csharp-nunit-dev` from a _local_ clone of 
 [https://github.com/cyber-dojo-start-points/csharp-nunit](https://github.com/cyber-dojo-start-points/csharp-nunit):
 
 ```bash
@@ -81,7 +80,7 @@ To bring up a cyber-dojo server `http://localhost:80` using this image:
 The script `bin/concat_all_start_points.sh` creates the file
 The `git_repo_urls.tagged` by reading all `data/*/git_repo.url` files.
 
-``bash
+```bash
   $ cat data/python-behave/git_repo.url
   f331e88@https://github.com/cyber-dojo-start-points/python-behave
 ```
