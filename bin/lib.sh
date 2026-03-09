@@ -37,3 +37,33 @@ function stderr()
   local -r message="${1}"
   >&2 echo "ERROR: ${message}"
 }
+
+function exit_non_zero_unless_installed()
+{
+  for dependent in "$@"
+  do
+    if ! installed "${dependent}" ; then
+      stderr "${dependent} is not installed!"
+      exit_non_zero
+    fi
+  done
+}
+
+function exit_non_zero_unless_file_exists()
+{
+  local -r filename="${1}"
+  if [ ! -f "${filename}" ]; then
+    stderr "${filename} does not exist"
+    exit_non_zero
+  fi
+}
+
+function installed()
+{
+  if hash "${1}" &> /dev/null; then
+    true
+  else
+    false
+  fi
+}
+
