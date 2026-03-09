@@ -24,7 +24,7 @@ The following cyber-dojo [CLI](https://github.com/cyber-dojo/commander/blob/mast
 ```
 
 The `--languages` flag can be repeated. The following command creates a
-languages-start-points image called `ruby-ruby-ruby` serving start-points for three Ruby test-frameworks:
+languages-start-points image called [ruby-ruby-ruby](https://www.youtube.com/watch?v=qObzgUfCl28) serving start-points for three Ruby test-frameworks:
 
 ```bash
    $ cyber-dojo start-point create ruby-ruby-ruby \
