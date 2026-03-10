@@ -7,7 +7,7 @@ from pathlib import Path
 
 MY_DIR=os.path.dirname(os.path.abspath(__file__))
 
-def slowest_10(colour):
+def concat_all_durations(colour):
   durations = {}
   entries = Path(f"{MY_DIR}/../data/").glob("*")
   for entry in entries:
@@ -18,11 +18,11 @@ def slowest_10(colour):
       data = json.load(file)
       durations[name] = data[f"{colour}_duration"]
 
-  sorted_durations = sorted(durations, key=durations.get, reverse=True)
-  for r in sorted_durations:
+  sorted_durations = sorted(durations, key=durations.get)
+  for r in reversed(sorted_durations):
     print(durations[r][:5], r)
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == "__main__":
   colour = sys.argv[1]
-  slowest_10(colour)
+  concat_all_durations(colour)

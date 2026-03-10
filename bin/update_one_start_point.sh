@@ -17,9 +17,14 @@ function show_help()
 
     Use: ./bin/${MY_NAME} [START-POINT-NAME]
 
-    Updates the file data/[START-POINT-NAME]/git_repo.url
-    so its contents reflect the most recent version of 
-    https://github.com/cyber-dojo-start-points/START-POINT-NAME
+    Updates the files in data/[START-POINT-NAME]
+    - durations.json
+      A summary of the red/amber/green test runs
+    - git_repo.url
+      The most recent commit of 
+      https://github.com/cyber-dojo-start-points/[START-POINT-NAME]
+    - compressed_image.size
+      The size and full registry path of the docker image 
 
     Typically followed by:
     \$ make concat_all_start_points
@@ -27,6 +32,12 @@ function show_help()
 
     Example:
       \$ ./bin/${MY_NAME} gcc-assert
+      {
+        "red_duration": "0.788800584",
+        "amber_duration": "0.362212917",
+        "green_duration": "0.47537575",
+        "mean_duration": "0.5421297503333333"
+      }
       80c713e@https://github.com/cyber-dojo-start-points/gcc-assert
       121608680 ghcr.io/cyber-dojo-languages/gcc_assert:98e787d 115.97 MiB
 
@@ -75,7 +86,7 @@ function get_red_amber_green_durations()
   docker pull --platform=linux/amd64 "${image_name}"
 
   # Now run red_amber_green_test.sh with magic env-var to capture test durations
-  export CYBER_DOJO_RAG_RUN_FILE_PREFIX=/tmp/rag_run_override  
+  export CYBER_DOJO_RAG_RUN_FILE_PREFIX=/tmp/hiker_run
 
   "$(red_amber_green_test)" "${repo_dir}"  
 
@@ -94,10 +105,10 @@ function get_red_amber_green_durations()
   # Put them into a single JSON file
   local -r durations_filename="${MY_DIR}/../data/${name}/durations.json"
   jq --arg red_duration   "${red_duration}"   \
-    --arg amber_duration "${amber_duration}" \
-    --arg green_duration "${green_duration}" \
-    --arg mean_duration  "${mean_duration}"  \
-    '$ARGS.named' <<< '{}' > "${durations_filename}"
+     --arg amber_duration "${amber_duration}" \
+     --arg green_duration "${green_duration}" \
+     --arg mean_duration  "${mean_duration}"  \
+     '$ARGS.named' <<< '{}' > "${durations_filename}"
 
   jq . "${durations_filename}"
 
