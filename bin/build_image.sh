@@ -65,7 +65,7 @@ function build_test_tag()
   local -r names="$(tr '\n' ' ' < "$(repo_root)/git_repo_urls.tagged")"
 
   # Ensure latest env-vars are tunnelled into cyber_dojo -> cyber_dojo_inner script.
-  export $(docker run --rm cyberdojo/versioner:latest)
+  # export $(docker run --rm cyberdojo/versioner:latest)
 
   # build
   $(cyber_dojo) start-point create "$(image_name)" --languages "${names}"
