@@ -11,6 +11,18 @@ all_start_points:
 concat_all_start_points:
 	${PWD}/bin/concat_all_start_points.sh
 
+concat_all_durations_red:
+	${PWD}/bin/concat_all_durations.py red
+
+concat_all_durations_amber:
+	${PWD}/bin/concat_all_durations.py amber
+
+concat_all_durations_green:
+	${PWD}/bin/concat_all_durations.py green
+
+concat_all_durations_mean:
+	${PWD}/bin/concat_all_durations.py mean
+
 image:
 	${PWD}/bin/build_image.sh
 
