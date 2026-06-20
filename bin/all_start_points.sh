@@ -42,7 +42,6 @@ declare -ar ALL_START_POINTS=(
   gplusplus-igloo
   groovy-junit
   groovy-spock
-  haskell-hunit
   java-approval
   java-cucumberpico
   java-cucumberspring
