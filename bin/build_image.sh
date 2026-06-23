@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -Eeu
 
+# Build for linux/amd64 by default. On Apple Silicon (arm64) docker would
+# otherwise build a host-arch (arm64) image, which web's demo cannot use
+# because its docker-compose.yml pins every service to platform: linux/amd64.
+# On a native amd64 host this is a no-op. Override by exporting the var first.
+export DOCKER_DEFAULT_PLATFORM="${DOCKER_DEFAULT_PLATFORM:-linux/amd64}"
+
 BIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${BIN_DIR}/lib.sh"
 source "${BIN_DIR}/echo_env_vars.sh"
