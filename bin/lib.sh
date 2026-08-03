@@ -27,9 +27,14 @@ function image_base_sha()
   docker run --rm $(image_name) sh -c 'echo ${CYBER_DOJO_START_POINTS_BASE_SHA}'
 }
 
+# Ends the script, non-zero. Not kill -INT $$: a signal is a request, and four
+# of the scripts sourcing this file trap INT to remove a temp dir. Those
+# handlers do not exit, so bash ran the handler and then carried on from the
+# next statement - a guard reporting a problem left the script running and
+# exiting 0. exit cannot be declined; the EXIT trap still runs the cleanup.
 function exit_non_zero()
 {
-  kill -INT $$
+  exit 42
 }
 
 function stderr()
