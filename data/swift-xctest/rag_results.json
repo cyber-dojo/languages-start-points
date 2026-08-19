@@ -1,0 +1,17 @@
+{
+  "red": {
+    "result": "FAILED",
+    "reached": "amber",
+    "max_seconds": 10
+  },
+  "amber": {
+    "result": "PASSED",
+    "reached": "amber",
+    "max_seconds": 10
+  },
+  "green": {
+    "result": "FAILED",
+    "reached": "amber",
+    "max_seconds": 10
+  }
+}

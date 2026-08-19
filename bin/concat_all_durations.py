@@ -8,6 +8,7 @@ from pathlib import Path
 MY_DIR=os.path.dirname(os.path.abspath(__file__))
 
 def concat_all_durations(colour):
+  """Print each start-point's duration for colour, slowest first."""
   durations = {}
   entries = Path(f"{MY_DIR}/../data/").glob("*")
   for entry in entries:
@@ -16,11 +17,12 @@ def concat_all_durations(colour):
     filename = f"{MY_DIR}/../data/{name}/durations.json"
     with open(filename, 'r') as file:
       data = json.load(file)
-      durations[name] = data[f"{colour}_duration"]
+      # float() so the ordering is numeric. Comparing the JSON strings puts
+      # '11.115' between '2.018' and '1.852', hiding the slowest start-points.
+      durations[name] = float(data[f"{colour}_duration"])
 
-  sorted_durations = sorted(durations, key=durations.get)
-  for r in reversed(sorted_durations):
-    print(durations[r][:5], r)
+  for name in sorted(durations, key=durations.get, reverse=True):
+    print(f"{durations[name]:.3f}", name)
 
 
 if __name__ == "__main__":
