@@ -42,6 +42,7 @@ declare -ar ALL_START_POINTS=(
   gplusplus-igloo
   groovy-junit
   groovy-spock
+  haskell-hunit
   java-approval
   java-cucumberpico
   java-cucumberspring
@@ -57,8 +58,8 @@ declare -ar ALL_START_POINTS=(
   javascript-jest
   javascript-mocha-chai-sinon
   javascript-qunit-sinon
-  julia-test
   jq-approvals
+  julia-test
   kotlin-test
   nasm-assert
   perl-testsimple
