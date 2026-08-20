@@ -117,6 +117,22 @@ function all_rag_run_files_exist()
 }
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Empty for every start-point whose image runs natively on any host. nasm
+# assembles to x86-64 objects only (nasm -f elf64), which gcc on an arm64 host
+# cannot link, so all three lights fall through to amber and the amber one
+# "passes" only because amber is the fallback verdict. Emulating amd64 is what
+# lets red and green be reached at all. The architecture recorded in
+# durations.json marks these times as not comparable with the native ones.
+function required_platform()
+{
+  local -r name="${1}" # eg nasm-assert
+  case "${name}" in
+    nasm-assert) echo linux/amd64 ;;
+    *)           echo '' ;;
+  esac
+}
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 function get_red_amber_green_durations()
 {
   local -r name="${1}"
@@ -128,12 +144,19 @@ function get_red_amber_green_durations()
   mkdir -p "${log_dir}"
 
   # Pull image_name used in red_amber_green_test.sh before running it, to avoid
-  # an implicit initial docker-pull peturbing the durations. No --platform is
-  # forced, so docker picks the variant matching this host. Emulating a foreign
-  # architecture inflates the durations unevenly between languages, which
-  # distorts their ranking, and ranking is what these numbers are read for.
+  # an implicit initial docker-pull peturbing the durations. A start-point gets
+  # the variant matching this host unless required_platform names one, because
+  # emulating a foreign architecture inflates the durations unevenly between
+  # languages, which distorts their ranking, and ranking is what these numbers
+  # are read for.
+  #
+  # The runner creates the language container with no --platform of its own, so
+  # the variant this pull leaves in the local store is the one the test runs on.
   local -r image_name="$(jq --raw-output .image_name "${repo_dir}/start_point/manifest.json")"
-  DOCKER_CLI_HINTS=false docker pull "${image_name}"
+  local -r platform="$(required_platform "${name}")"
+  # Unquoted on purpose: empty must expand to no argument at all, and the value
+  # is a literal with no spaces.
+  DOCKER_CLI_HINTS=false docker pull ${platform:+--platform ${platform}} "${image_name}"
 
   # Which architecture the durations below were actually measured on. An image
   # published for this host runs natively; one without a matching variant runs
