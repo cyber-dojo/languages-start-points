@@ -1,8 +1,7 @@
 4.595 swift-swordfish
-3.886 swift-xctest
-3.539 kotlin-test
 2.967 rescript-jest
 2.663 zig-test
+2.412 kotlin-test
 2.384 clojure-midje
 2.334 csharp-reqnroll
 2.054 gplusplus-cucumber
@@ -10,9 +9,9 @@
 1.731 clangplusplus-igloo
 1.585 visual-basic-nunit
 1.533 erlang-eunit
-1.519 nasm-assert
 1.441 gplusplus-igloo
 1.405 java-mockito
+1.325 nasm-assert
 1.312 java-powermockito
 1.305 typescript-jest
 1.230 python-approval-unittest
@@ -37,6 +36,7 @@
 0.813 fsharp-nunit
 0.803 gplusplus-boosttest
 0.796 javascript-assert-jquery
+0.795 swift-xctest
 0.779 gplusplus-catch
 0.768 python-assert
 0.746 gcc-googletest
