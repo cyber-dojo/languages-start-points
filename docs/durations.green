@@ -1,4 +1,3 @@
-4.595 swift-swordfish
 2.967 rescript-jest
 2.663 zig-test
 2.412 kotlin-test
@@ -22,6 +21,7 @@
 1.081 clangplusplus-googletest
 1.079 go-testify
 1.069 java-cucumberpico
+0.987 swift-swordfish
 0.978 python-unittest
 0.964 clangplusplus-googlemock
 0.952 clojure-test
@@ -30,13 +30,13 @@
 0.921 java-sqlite
 0.885 java-jmock
 0.862 groovy-spock
+0.840 swift-xctest
 0.839 java-junit
 0.824 groovy-junit
 0.820 python-behave
 0.813 fsharp-nunit
 0.803 gplusplus-boosttest
 0.796 javascript-assert-jquery
-0.795 swift-xctest
 0.779 gplusplus-catch
 0.768 python-assert
 0.746 gcc-googletest

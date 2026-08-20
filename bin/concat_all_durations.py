@@ -14,6 +14,13 @@ def concat_all_durations(colour):
   for entry in entries:
     parts = str(entry).split('/')
     name = parts[-1] # eg java-junit
+    # Only start-point directories are named here. Tooling drops dot-directories
+    # into whatever it treats as the working directory, and glob("*") matches
+    # them, so one stray .claude/ would otherwise stop the whole listing. An
+    # ordinarily named directory with no durations.json still raises, because
+    # that is a real gap for list_missing_durations.sh to report.
+    if name.startswith('.'):
+      continue
     filename = f"{MY_DIR}/../data/{name}/durations.json"
     with open(filename, 'r') as file:
       data = json.load(file)
