@@ -1,4 +1,3 @@
-5.691 swift-swordfish
 3.113 rescript-jest
 2.713 zig-test
 2.456 kotlin-test
@@ -28,9 +27,10 @@
 0.957 go-convey
 0.949 java-sqlite
 0.940 fsharp-nunit
-0.935 swift-xctest
+0.933 swift-xctest
 0.932 clangplusplus-googlemock
 0.904 python-unittest
+0.898 swift-swordfish
 0.884 groovy-spock
 0.877 python-pytest
 0.875 java-jmock

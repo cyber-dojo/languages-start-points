@@ -1,5 +1,4 @@
 2.647 rescript-jest
-2.528 swift-swordfish
 2.425 clojure-midje
 2.028 gplusplus-cucumber
 1.889 gplusplus-googlemock
@@ -16,8 +15,9 @@
 0.939 clangplusplus-googletest
 0.894 go-convey
 0.743 gplusplus-boosttest
+0.725 swift-swordfish
 0.725 java-mockito
-0.717 swift-xctest
+0.716 swift-xctest
 0.715 java-powermockito
 0.699 java-sqlite
 0.683 java-jmock
