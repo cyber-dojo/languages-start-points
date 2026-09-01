@@ -9,12 +9,12 @@ a4a581f@https://github.com/cyber-dojo-start-points/clangplusplus-assert
 159979e@https://github.com/cyber-dojo-start-points/clangplusplus-googlemock
 db6a0f1@https://github.com/cyber-dojo-start-points/clangplusplus-googletest
 b78a317@https://github.com/cyber-dojo-start-points/clangplusplus-igloo
-50beb7c@https://github.com/cyber-dojo-start-points/clojure-midje
-0e84fd4@https://github.com/cyber-dojo-start-points/clojure-test
+72357ea@https://github.com/cyber-dojo-start-points/clojure-midje
+6a8430f@https://github.com/cyber-dojo-start-points/clojure-test
 8031d01@https://github.com/cyber-dojo-start-points/coffeescript-jasmine
 a5b24a1@https://github.com/cyber-dojo-start-points/csharp-moq
 18f95be@https://github.com/cyber-dojo-start-points/csharp-nunit
-8e66001@https://github.com/cyber-dojo-start-points/csharp-reqnroll
+fa2c6e3@https://github.com/cyber-dojo-start-points/csharp-reqnroll
 191b781@https://github.com/cyber-dojo-start-points/dee-unittest
 263455d@https://github.com/cyber-dojo-start-points/elixir-exunit
 342c9f9@https://github.com/cyber-dojo-start-points/erlang-eunit
@@ -32,7 +32,7 @@ f404e3c@https://github.com/cyber-dojo-start-points/gplusplus-assert
 e1e6a09@https://github.com/cyber-dojo-start-points/gplusplus-catch
 0cf2f42@https://github.com/cyber-dojo-start-points/gplusplus-cgreen
 25a2e38@https://github.com/cyber-dojo-start-points/gplusplus-cpputest
-a815325@https://github.com/cyber-dojo-start-points/gplusplus-cucumber
+f08b7ff@https://github.com/cyber-dojo-start-points/gplusplus-cucumber
 a82a00b@https://github.com/cyber-dojo-start-points/gplusplus-googlemock
 159f844@https://github.com/cyber-dojo-start-points/gplusplus-googletest
 33d08a0@https://github.com/cyber-dojo-start-points/gplusplus-igloo
@@ -43,7 +43,7 @@ b6715ca@https://github.com/cyber-dojo-start-points/java-approval
 75f3db3@https://github.com/cyber-dojo-start-points/java-cucumberpico
 d52ca92@https://github.com/cyber-dojo-start-points/java-cucumberspring
 e9fa6f1@https://github.com/cyber-dojo-start-points/java-jmock
-31a1cff@https://github.com/cyber-dojo-start-points/java-junit
+c19f3fe@https://github.com/cyber-dojo-start-points/java-junit
 1641708@https://github.com/cyber-dojo-start-points/java-mockito
 03c6eb4@https://github.com/cyber-dojo-start-points/java-powermockito
 3dcb6c5@https://github.com/cyber-dojo-start-points/java-sqlite
@@ -56,7 +56,7 @@ a466081@https://github.com/cyber-dojo-start-points/javascript-jasmine
 2a31435@https://github.com/cyber-dojo-start-points/javascript-qunit-sinon
 8ddb49a@https://github.com/cyber-dojo-start-points/jq-approvals
 61c96bf@https://github.com/cyber-dojo-start-points/julia-test
-e67eb4a@https://github.com/cyber-dojo-start-points/kotlin-test
+6c9b580@https://github.com/cyber-dojo-start-points/kotlin-test
 eebff99@https://github.com/cyber-dojo-start-points/nasm-assert
 fd96c09@https://github.com/cyber-dojo-start-points/perl-testsimple
 8e68238@https://github.com/cyber-dojo-start-points/php-unit
@@ -68,7 +68,7 @@ fd96c09@https://github.com/cyber-dojo-start-points/perl-testsimple
 07167d4@https://github.com/cyber-dojo-start-points/python-pytest
 108910f@https://github.com/cyber-dojo-start-points/python-unittest
 201ac39@https://github.com/cyber-dojo-start-points/r-runit
-c8b5bdd@https://github.com/cyber-dojo-start-points/rescript-jest
+04624de@https://github.com/cyber-dojo-start-points/rescript-jest
 ec3a4aa@https://github.com/cyber-dojo-start-points/ruby-approval
 f664d98@https://github.com/cyber-dojo-start-points/ruby-cucumber
 6d16472@https://github.com/cyber-dojo-start-points/ruby-minitest
@@ -80,4 +80,4 @@ ba1d75f@https://github.com/cyber-dojo-start-points/ruby-testunit
 7f782c7@https://github.com/cyber-dojo-start-points/typescript-jest
 0e28c63@https://github.com/cyber-dojo-start-points/vhdl-assert
 3a67841@https://github.com/cyber-dojo-start-points/visual-basic-nunit
-acafeaf@https://github.com/cyber-dojo-start-points/zig-test
+dcef726@https://github.com/cyber-dojo-start-points/zig-test
