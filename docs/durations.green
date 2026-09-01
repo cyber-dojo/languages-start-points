@@ -1,10 +1,7 @@
-2.967 rescript-jest
-2.663 zig-test
-2.412 kotlin-test
-2.384 clojure-midje
-2.334 csharp-reqnroll
-2.054 gplusplus-cucumber
+2.361 csharp-reqnroll
 2.048 gplusplus-googlemock
+1.909 kotlin-test
+1.808 zig-test
 1.731 clangplusplus-igloo
 1.585 visual-basic-nunit
 1.533 erlang-eunit
@@ -15,6 +12,7 @@
 1.305 typescript-jest
 1.230 python-approval-unittest
 1.177 python-approval-pytest
+1.159 gplusplus-cucumber
 1.156 java-cucumberspring
 1.119 clangplusplus-catch
 1.092 java-approval
@@ -24,7 +22,6 @@
 0.987 swift-swordfish
 0.978 python-unittest
 0.964 clangplusplus-googlemock
-0.952 clojure-test
 0.938 python-pytest
 0.923 go-convey
 0.921 java-sqlite
@@ -39,8 +36,10 @@
 0.796 javascript-assert-jquery
 0.779 gplusplus-catch
 0.768 python-assert
+0.747 rescript-jest
 0.746 gcc-googletest
 0.733 gplusplus-googletest
+0.684 clojure-midje
 0.684 rust-test
 0.673 gplusplus-cpputest
 0.641 javascript-mocha-chai-sinon
@@ -55,6 +54,7 @@
 0.492 javascript-qunit-sinon
 0.489 javascript-jasmine
 0.473 gplusplus-assert
+0.455 clojure-test
 0.445 ruby-cucumber
 0.429 elixir-exunit
 0.403 haskell-hunit

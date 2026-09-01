@@ -1,17 +1,14 @@
-2.647 rescript-jest
-2.425 clojure-midje
-2.028 gplusplus-cucumber
 1.889 gplusplus-googlemock
-1.779 zig-test
-1.699 kotlin-test
+1.616 zig-test
 1.533 clangplusplus-igloo
+1.493 kotlin-test
 1.482 visual-basic-nunit
-1.391 csharp-reqnroll
+1.371 csharp-reqnroll
 1.322 gplusplus-igloo
+1.208 gplusplus-cucumber
 1.110 go-testify
 1.096 julia-test
 1.053 nasm-assert
-1.042 clojure-test
 0.939 clangplusplus-googletest
 0.894 go-convey
 0.743 gplusplus-boosttest
@@ -21,6 +18,7 @@
 0.715 java-powermockito
 0.699 java-sqlite
 0.683 java-jmock
+0.673 clojure-midje
 0.673 gcc-googletest
 0.671 gplusplus-googletest
 0.656 python-approval-pytest
@@ -36,6 +34,7 @@
 0.544 fsharp-nunit
 0.537 java-cucumberspring
 0.530 java-cucumberpico
+0.514 clojure-test
 0.511 clangplusplus-cgreen
 0.510 javascript-qunit-sinon
 0.491 clangplusplus-googlemock
@@ -48,6 +47,7 @@
 0.423 python-behave
 0.417 ruby-approval
 0.416 ruby-cucumber
+0.415 rescript-jest
 0.393 python-approval-unittest
 0.381 gplusplus-assert
 0.378 prolog-plunit
