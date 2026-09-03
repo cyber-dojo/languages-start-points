@@ -6,7 +6,17 @@ source "${MY_DIR}/lib.sh"
 
 readonly DOCKERHUB=https://hub.docker.com/v2/repositories
 readonly TMP_DIR=$(mktemp -d /tmp/cyber-dojo.languages-start-points.build.XXXXXX)
-function remove_tmps() { rm -rf "${TMP_DIR}" > /dev/null; }
+# The data dir this run created and has not yet filled, if any.
+# concat_all_durations.py reads durations.json from every dir under data/, so a
+# half-written one would stop it reporting any start-point at all.
+INCOMPLETE_DATA_DIR=''
+function remove_tmps()
+{
+  rm -rf "${TMP_DIR}" > /dev/null
+  if [ -n "${INCOMPLETE_DATA_DIR}" ]; then
+    rm -rf "${INCOMPLETE_DATA_DIR}"
+  fi
+}
 # Ctrl-C must end this process, not just clean up and carry on to the next
 # statement. 130 is the conventional status for death by SIGINT, and the caller
 # looping over all start-points uses it to stop the whole run.
@@ -74,12 +84,24 @@ function update_one_start_point()
   rm -rf "${repo_dir}"
   mkdir "${repo_dir}"
   git clone "${url}" "${repo_dir}" &> /dev/null
+  # A start-point measured for the first time has no data dir, and each step
+  # below writes a file into it. Creating it after the clone is what keeps a
+  # mistyped name from leaving a dir behind, since cloning a repo that does not
+  # exist ends the script first.
+  local -r data_dir="${MY_DIR}/../data/${name}"
+  if [ ! -d "${data_dir}" ]; then
+    mkdir -p "${data_dir}"
+    INCOMPLETE_DATA_DIR="${data_dir}"
+  fi
   # Every step below exits non-zero on failure, which leaves this start-point's
   # data files as they were. The caller looping over all start-points runs this
   # script as a separate process, so one bad start-point does not end the loop.
   get_red_amber_green_durations "${name}" "${repo_dir}"
   get_tagged_repo_url           "${name}" "${repo_dir}"
   get_compressed_image_size     "${name}" "${repo_dir}"
+  # Every data file is written, so the dir is complete and stays whatever
+  # happens next.
+  INCOMPLETE_DATA_DIR=''
   # Only on the success path, so a start-point that failed keeps its image for
   # investigating.
   remove_other_tags_of_image "$(jq --raw-output .image_name "${repo_dir}/start_point/manifest.json")"
