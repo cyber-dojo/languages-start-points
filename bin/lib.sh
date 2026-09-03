@@ -24,7 +24,7 @@ function image_name()
 
 function image_base_sha()
 {
-  docker run --rm $(image_name) sh -c 'echo ${CYBER_DOJO_START_POINTS_BASE_SHA}'
+  docker run --rm "$(image_name):$(git_commit_tag)" sh -c 'echo ${CYBER_DOJO_START_POINTS_BASE_SHA}'
 }
 
 # Ends the script, non-zero. Not kill -INT $$: a signal is a request, and four
