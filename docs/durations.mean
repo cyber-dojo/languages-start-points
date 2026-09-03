@@ -35,6 +35,7 @@
 0.653 java-mockito
 0.643 gplusplus-cpputest
 0.638 csharp-moq
+0.637 rust-proptest
 0.619 python-approval-unittest
 0.602 java-approval
 0.598 csharp-nunit
@@ -53,6 +54,7 @@
 0.498 gplusplus-assert
 0.495 clojure-test
 0.492 java-junit
+0.487 go-gomock
 0.483 elixir-exunit
 0.482 python-assert
 0.474 java-sqlite
