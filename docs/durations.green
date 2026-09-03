@@ -32,6 +32,7 @@
 0.746 csharp-moq
 0.746 gcc-cpputest
 0.742 groovy-junit
+0.731 rust-proptest
 0.729 javascript-jest
 0.717 python-approval-unittest
 0.701 ruby-cucumber
@@ -55,6 +56,7 @@
 0.512 java-sqlite
 0.511 java-junit
 0.495 go-testify
+0.491 go-gomock
 0.487 haskell-hunit
 0.484 clojure-test
 0.476 java-jmock

@@ -28,6 +28,7 @@
 0.760 csharp-moq
 0.752 javascript-jest
 0.750 groovy-spock
+0.747 rust-proptest
 0.746 java-powermockito
 0.734 groovy-junit
 0.733 javascript-mocha-chai-sinon
@@ -40,6 +41,7 @@
 0.668 gplusplus-cpputest
 0.658 clojure-midje
 0.656 ruby-approval
+0.628 go-gomock
 0.605 julia-test
 0.586 java-junit
 0.582 javascript-qunit-sinon

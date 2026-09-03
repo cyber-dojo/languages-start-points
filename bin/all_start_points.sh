@@ -29,6 +29,7 @@ declare -ar ALL_START_POINTS=(
   gcc-cpputest
   gcc-googletest
   go-convey
+  go-gomock
   go-testify
   go-testing
   gplusplus-assert
@@ -78,6 +79,7 @@ declare -ar ALL_START_POINTS=(
   ruby-minitest
   ruby-rspec
   ruby-testunit
+  rust-proptest
   rust-test
   swift-swordfish
   swift-xctest

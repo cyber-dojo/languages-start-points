@@ -42,6 +42,7 @@
 0.448 java-cucumberspring
 0.443 csharp-nunit
 0.439 r-runit
+0.433 rust-proptest
 0.432 prolog-plunit
 0.425 ruby-rspec
 0.423 java-cucumberpico
@@ -71,6 +72,7 @@
 0.348 bash-unit
 0.346 clang-assert
 0.342 gcc-assert
+0.341 go-gomock
 0.338 javascript-assert
 0.335 bash-shunit2
 0.334 coffeescript-jasmine
