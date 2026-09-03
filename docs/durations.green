@@ -2,12 +2,10 @@
 1.886 kotlin-test
 1.588 erlang-eunit
 1.325 nasm-assert
-1.127 groovy-junit
 1.106 clangplusplus-googlemock
 1.084 visual-basic-nunit
 1.025 zig-test
 1.024 swift-swordfish
-1.022 groovy-spock
 1.015 clangplusplus-catch
 1.013 rescript-jest
 0.975 typescript-jest
@@ -26,11 +24,13 @@
 0.804 java-powermockito
 0.786 java-mockito
 0.785 gplusplus-cucumber
+0.770 groovy-spock
 0.766 rust-test
 0.760 python-pytest
 0.756 javascript-mocha-chai-sinon
 0.746 csharp-moq
 0.746 gcc-cpputest
+0.742 groovy-junit
 0.729 javascript-jest
 0.717 python-approval-unittest
 0.701 ruby-cucumber
@@ -40,9 +40,9 @@
 0.653 gplusplus-cpputest
 0.642 clojure-midje
 0.634 python-unittest
-0.612 java-approval
 0.611 python-behave
 0.587 clangplusplus-assert
+0.586 java-approval
 0.573 javascript-jasmine
 0.567 javascript-qunit-sinon
 0.553 java-cucumberpico
@@ -57,7 +57,7 @@
 0.487 haskell-hunit
 0.484 clojure-test
 0.476 java-jmock
-0.459 julia-test
+0.458 julia-test
 0.455 go-testing
 0.450 clang-assert
 0.449 vhdl-assert
