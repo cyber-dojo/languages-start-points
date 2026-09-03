@@ -82,6 +82,7 @@ declare -ar ALL_START_POINTS=(
   swift-swordfish
   swift-xctest
   typescript-jest
+  typescript-vitest
   vhdl-assert
   visual-basic-nunit
   zig-test

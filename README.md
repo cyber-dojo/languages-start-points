@@ -89,14 +89,15 @@ The script `bin/concat_all_start_points.sh` creates the file
 
 # Main workflow
 
-- Add any new start-points to the ALL_START_POINTS array in [bin/all_start_points.sh](bin/all_start_points.sh)
-- Run `make all_start_points` to create an up-to-date version of [git_repo_urls.tagged](git_repo_urls.tagged) which lists all the [cyber-dojo-start-points](https://github.com/cyber-dojo-start-points) repositories (each start-point repo contributes one `manifest.json` to the image).
+- To add one new start-point, or to refresh one existing start-point:
+  - Run `make add_one_start_point name=[NAME]`
+  - This measures only [NAME], so it takes minutes rather than hours. It creates `data/[NAME]/`, adds [NAME] to the ALL_START_POINTS array in [bin/all_start_points.sh](bin/all_start_points.sh), and rebuilds [git_repo_urls.tagged](git_repo_urls.tagged) and `docs/durations.*` from the files on disk, so both still cover every start-point.
+- To re-measure every start-point:
+  - Add any new start-points to the ALL_START_POINTS array in [bin/all_start_points.sh](bin/all_start_points.sh)
+  - Run `make all_start_points` to create an up-to-date version of [git_repo_urls.tagged](git_repo_urls.tagged) which lists all the [cyber-dojo-start-points](https://github.com/cyber-dojo-start-points) repositories (each start-point repo contributes one `manifest.json` to the image).
+  - This clones every start-point and runs its red/amber/green tests, which takes a long time.
 - You can also update `git_repo_urls.tagged` via the [.github/workflows/refresh.yml](.github/workflows/refresh.yml) workflow.
   - This creates a branch that you can then merge into main.
-- If you only have one start-point to update:
-  - Run `./bin/update_one_start_point.sh [NAME]`
-  - This updates file `data/[NAME]/git_repo.url` 
-  - Then run `make concat_all_start_points`
 - Run the `make image` to build the image from `git_repo_urls.tagged` for local development/testing.
 - Create a branch, add, commit, push.
 

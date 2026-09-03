@@ -4,6 +4,7 @@
 1.401 nasm-assert
 1.085 visual-basic-nunit
 1.047 zig-test
+1.028 typescript-vitest
 1.006 clangplusplus-googlemock
 0.989 rescript-jest
 0.987 typescript-jest

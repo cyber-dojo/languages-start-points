@@ -21,6 +21,7 @@
 0.678 ruby-cucumber
 0.663 clojure-midje
 0.640 fsharp-nunit
+0.622 typescript-vitest
 0.609 gplusplus-cpputest
 0.583 clangplusplus-googlemock
 0.563 javascript-jasmine
