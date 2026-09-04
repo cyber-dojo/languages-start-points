@@ -30,12 +30,12 @@
 0.691 ruby-cucumber
 0.679 groovy-junit
 0.678 ruby-approval
+0.669 rust-proptest
 0.656 java-powermockito
 0.655 clojure-midje
 0.653 java-mockito
 0.643 gplusplus-cpputest
 0.638 csharp-moq
-0.637 rust-proptest
 0.619 python-approval-unittest
 0.602 java-approval
 0.598 csharp-nunit

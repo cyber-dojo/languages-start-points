@@ -32,9 +32,9 @@
 0.746 csharp-moq
 0.746 gcc-cpputest
 0.742 groovy-junit
-0.731 rust-proptest
 0.729 javascript-jest
 0.717 python-approval-unittest
+0.709 rust-proptest
 0.701 ruby-cucumber
 0.665 csharp-nunit
 0.661 ruby-approval
