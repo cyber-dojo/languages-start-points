@@ -31,6 +31,7 @@
 0.530 visual-basic-nunit
 0.528 clojure-test
 0.525 javascript-qunit-sinon
+0.511 rust-proptest
 0.506 javascript-cucumber
 0.491 python-behave
 0.484 rescript-jest
@@ -42,7 +43,6 @@
 0.448 java-cucumberspring
 0.443 csharp-nunit
 0.439 r-runit
-0.433 rust-proptest
 0.432 prolog-plunit
 0.425 ruby-rspec
 0.423 java-cucumberpico

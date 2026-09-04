@@ -23,12 +23,12 @@
 0.815 python-approval-pytest
 0.809 gcc-googletest
 0.793 gplusplus-googletest
+0.787 rust-proptest
 0.782 java-mockito
 0.766 clangplusplus-igloo
 0.760 csharp-moq
 0.752 javascript-jest
 0.750 groovy-spock
-0.747 rust-proptest
 0.746 java-powermockito
 0.734 groovy-junit
 0.733 javascript-mocha-chai-sinon
