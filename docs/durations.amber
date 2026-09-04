@@ -1,4 +1,4 @@
-1.478 kotlin-test
+1.429 kotlin-test
 1.359 csharp-reqnroll
 1.053 nasm-assert
 0.840 gplusplus-boosttest
@@ -14,6 +14,7 @@
 0.733 clangplusplus-googletest
 0.731 python-approval-pytest
 0.720 javascript-mocha-chai-sinon
+0.718 scala-scalatest
 0.717 ruby-approval
 0.705 gcc-cpputest
 0.691 clangplusplus-igloo

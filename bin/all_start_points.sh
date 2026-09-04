@@ -81,6 +81,7 @@ declare -ar ALL_START_POINTS=(
   ruby-testunit
   rust-proptest
   rust-test
+  scala-scalatest
   swift-swordfish
   swift-xctest
   typescript-jest
