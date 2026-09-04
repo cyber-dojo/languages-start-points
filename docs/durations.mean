@@ -1,7 +1,8 @@
 2.018 csharp-reqnroll
-1.774 kotlin-test
+1.693 kotlin-test
 1.260 nasm-assert
 1.206 erlang-eunit
+1.000 scala-scalatest
 0.942 zig-test
 0.933 swift-swordfish
 0.900 visual-basic-nunit
