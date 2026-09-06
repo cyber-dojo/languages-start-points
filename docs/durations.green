@@ -68,12 +68,12 @@
 0.439 go-convey
 0.424 gplusplus-cgreen
 0.422 php-unit
+0.415 ruby-minitest
 0.413 gcc-assert
-0.407 ruby-testunit
 0.405 fortran-funit
-0.403 ruby-minitest
 0.399 ruby-rspec
 0.391 clangplusplus-cgreen
+0.388 ruby-testunit
 0.387 bash-shunit2
 0.381 javascript-assert
 0.376 dee-unittest

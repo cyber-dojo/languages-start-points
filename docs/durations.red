@@ -53,13 +53,12 @@
 0.573 rust-test
 0.557 python-behave
 0.552 javascript-jasmine
-0.548 ruby-minitest
 0.543 python-unittest
 0.536 javascript-cucumber
+0.532 ruby-minitest
 0.532 clangplusplus-assert
 0.514 vhdl-assert
 0.510 elixir-exunit
-0.498 ruby-testunit
 0.496 python-assert
 0.494 javascript-assert
 0.482 gplusplus-assert
@@ -68,6 +67,7 @@
 0.474 jq-approvals
 0.474 clojure-test
 0.472 perl-testsimple
+0.471 ruby-testunit
 0.468 go-testify
 0.452 bash-unit
 0.450 go-convey
