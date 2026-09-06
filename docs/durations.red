@@ -2,7 +2,6 @@
 1.401 nasm-assert
 1.224 kotlin-kotest
 1.085 visual-basic-nunit
-1.065 ruby-minitest
 1.052 csharp-reqnroll
 1.047 zig-test
 1.031 scala-scalatest
@@ -54,12 +53,13 @@
 0.573 rust-test
 0.557 python-behave
 0.552 javascript-jasmine
-0.544 ruby-testunit
+0.548 ruby-minitest
 0.543 python-unittest
 0.536 javascript-cucumber
 0.532 clangplusplus-assert
 0.514 vhdl-assert
 0.510 elixir-exunit
+0.498 ruby-testunit
 0.496 python-assert
 0.494 javascript-assert
 0.482 gplusplus-assert
