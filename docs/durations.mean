@@ -20,7 +20,6 @@
 0.811 gplusplus-cucumber
 0.799 gplusplus-googletest
 0.798 python-approval-pytest
-0.790 ruby-minitest
 0.774 clangplusplus-catch
 0.772 clangplusplus-igloo
 0.758 javascript-jest
@@ -57,11 +56,12 @@
 0.519 javascript-cucumber
 0.514 julia-test
 0.502 go-gomock
+0.500 ruby-minitest
 0.498 gplusplus-assert
 0.495 clojure-test
 0.483 elixir-exunit
 0.482 python-assert
-0.480 ruby-testunit
+0.459 ruby-testunit
 0.452 go-testify
 0.449 go-testing
 0.431 haskell-hunit
