@@ -28,7 +28,7 @@
 0.572 groovy-junit
 0.563 javascript-jasmine
 0.555 typescript-jest
-0.547 ruby-minitest
+0.531 ruby-minitest
 0.530 java-mockito
 0.530 visual-basic-nunit
 0.528 clojure-test
@@ -40,8 +40,8 @@
 0.481 csharp-xunit
 0.480 java-cucumberpico
 0.477 julia-test
-0.473 ruby-testunit
 0.465 gplusplus-assert
+0.464 ruby-testunit
 0.461 clangplusplus-assert
 0.460 java-sqlite
 0.455 java-cucumberspring
