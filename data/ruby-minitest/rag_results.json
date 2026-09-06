@@ -2,16 +2,16 @@
   "red": {
     "result": "PASSED",
     "reached": "red",
-    "max_seconds": 10
+    "max_seconds": 15
   },
   "amber": {
     "result": "PASSED",
     "reached": "amber",
-    "max_seconds": 10
+    "max_seconds": 15
   },
   "green": {
     "result": "PASSED",
     "reached": "green",
-    "max_seconds": 10
+    "max_seconds": 15
   }
 }

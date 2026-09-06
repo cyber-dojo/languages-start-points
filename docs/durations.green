@@ -28,6 +28,7 @@
 0.785 rust-proptest
 0.777 groovy-junit
 0.774 java-mockito
+0.773 ruby-minitest
 0.770 java-powermockito
 0.766 rust-test
 0.763 groovy-spock
@@ -53,7 +54,6 @@
 0.559 java-sqlite
 0.549 python-assert
 0.547 gplusplus-assert
-0.540 ruby-minitest
 0.537 java-junit
 0.526 elixir-exunit
 0.518 java-jmock
@@ -66,8 +66,8 @@
 0.455 go-testing
 0.450 clang-assert
 0.449 vhdl-assert
-0.439 ruby-testunit
 0.439 go-convey
+0.432 ruby-testunit
 0.424 gplusplus-cgreen
 0.422 php-unit
 0.413 gcc-assert
