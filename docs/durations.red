@@ -1,10 +1,10 @@
-2.344 csharp-reqnroll
-1.834 kotlin-test
 1.644 erlang-eunit
 1.401 nasm-assert
-1.187 scala-scalatest
+1.224 kotlin-kotest
 1.085 visual-basic-nunit
+1.052 csharp-reqnroll
 1.047 zig-test
+1.031 scala-scalatest
 1.028 typescript-vitest
 1.006 clangplusplus-googlemock
 0.989 rescript-jest
