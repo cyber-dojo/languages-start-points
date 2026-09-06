@@ -61,7 +61,7 @@ declare -ar ALL_START_POINTS=(
   javascript-qunit-sinon
   jq-approvals
   julia-test
-  kotlin-test
+  kotlin-kotest
   nasm-assert
   perl-testsimple
   php-unit

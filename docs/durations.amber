@@ -1,5 +1,3 @@
-1.429 kotlin-test
-1.359 csharp-reqnroll
 1.053 nasm-assert
 0.840 gplusplus-boosttest
 0.833 swift-swordfish
@@ -8,17 +6,19 @@
 0.805 swift-xctest
 0.796 gplusplus-igloo
 0.792 javascript-jest
+0.774 kotlin-kotest
 0.760 gplusplus-googlemock
 0.757 gplusplus-googletest
 0.754 zig-test
 0.733 clangplusplus-googletest
 0.731 python-approval-pytest
 0.720 javascript-mocha-chai-sinon
-0.718 scala-scalatest
 0.717 ruby-approval
 0.705 gcc-cpputest
+0.694 scala-scalatest
 0.691 clangplusplus-igloo
 0.690 groovy-spock
+0.679 csharp-reqnroll
 0.678 ruby-cucumber
 0.663 clojure-midje
 0.640 fsharp-nunit
