@@ -19,6 +19,7 @@ declare -ar ALL_START_POINTS=(
   csharp-moq
   csharp-nunit
   csharp-reqnroll
+  csharp-xunit
   dee-unittest
   elixir-exunit
   erlang-eunit

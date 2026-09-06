@@ -12,6 +12,7 @@
 0.986 clangplusplus-catch
 0.982 fsharp-nunit
 0.942 swift-swordfish
+0.911 csharp-xunit
 0.886 swift-xctest
 0.881 java-cucumberspring
 0.864 gplusplus-catch
