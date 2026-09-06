@@ -24,6 +24,7 @@
 0.772 clangplusplus-igloo
 0.758 javascript-jest
 0.746 groovy-spock
+0.743 csharp-xunit
 0.736 javascript-mocha-chai-sinon
 0.730 java-cucumberspring
 0.718 gcc-cpputest

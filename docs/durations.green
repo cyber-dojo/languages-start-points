@@ -23,6 +23,7 @@
 0.854 java-cucumberspring
 0.848 python-approval-pytest
 0.847 gplusplus-googletest
+0.837 csharp-xunit
 0.785 gplusplus-cucumber
 0.785 rust-proptest
 0.777 groovy-junit
