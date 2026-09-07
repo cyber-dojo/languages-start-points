@@ -16,7 +16,6 @@ declare -ar ALL_START_POINTS=(
   clojure-midje
   clojure-test
   coffeescript-jasmine
-  csharp-moq
   csharp-nunit
   csharp-reqnroll
   csharp-xunit

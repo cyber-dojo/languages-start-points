@@ -12,7 +12,8 @@
 0.986 clangplusplus-catch
 0.982 fsharp-nunit
 0.942 swift-swordfish
-0.911 csharp-xunit
+0.916 csharp-nunit
+0.908 csharp-xunit
 0.886 swift-xctest
 0.881 java-cucumberspring
 0.864 gplusplus-catch
@@ -31,7 +32,6 @@
 0.777 rust-proptest
 0.766 clangplusplus-igloo
 0.763 java-powermockito
-0.760 csharp-moq
 0.760 java-cucumberpico
 0.753 groovy-junit
 0.752 javascript-jest
@@ -41,7 +41,6 @@
 0.703 python-pytest
 0.702 gcc-cpputest
 0.694 ruby-cucumber
-0.686 csharp-nunit
 0.686 javascript-assert-jquery
 0.685 java-jmock
 0.671 go-gomock

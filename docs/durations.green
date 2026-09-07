@@ -20,10 +20,11 @@
 0.885 swift-xctest
 0.859 gcc-googletest
 0.859 clangplusplus-igloo
+0.857 csharp-xunit
 0.854 java-cucumberspring
 0.848 python-approval-pytest
 0.847 gplusplus-googletest
-0.837 csharp-xunit
+0.797 csharp-nunit
 0.785 gplusplus-cucumber
 0.785 rust-proptest
 0.777 groovy-junit
@@ -33,12 +34,10 @@
 0.763 groovy-spock
 0.760 python-pytest
 0.756 javascript-mocha-chai-sinon
-0.746 csharp-moq
 0.746 gcc-cpputest
 0.729 javascript-jest
 0.717 python-approval-unittest
 0.701 ruby-cucumber
-0.665 csharp-nunit
 0.661 ruby-approval
 0.655 javascript-assert-jquery
 0.653 gplusplus-cpputest
