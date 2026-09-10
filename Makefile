@@ -2,7 +2,7 @@
 SHORT_SHA := $(shell git rev-parse HEAD | head -c7)
 IMAGE_NAME := cyberdojo/languages-start-points:${SHORT_SHA}
 
-.PHONY: update_all_start_points image concat_all_start_points update_durations add_one_start_point snyk-container snyk-code
+.PHONY: update_all_start_points image concat_all_start_points update_durations add_one_start_point tests snyk-container snyk-code
 
 all_start_points:
 	${PWD}/bin/update_all_start_points.sh
@@ -12,6 +12,9 @@ all_start_points:
 # Eg make add_one_start_point name=typescript-vitest
 add_one_start_point:
 	${PWD}/bin/add_one_start_point.sh ${name}
+
+tests:
+	${PWD}/test/run_tests.sh
 
 concat_all_start_points:
 	${PWD}/bin/concat_all_start_points.sh
