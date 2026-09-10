@@ -16,11 +16,15 @@ function show_help()
     local -r MY_NAME=$(basename "${BASH_SOURCE[0]}")
     cat <<- EOF
 
-    Use: ./bin/${MY_NAME}
+    Use: ./bin/${MY_NAME} [NAME...]
 
     Refreshes all the data/*/git_repo.url files by iterating
     over ALL_START_POINTS from bin/all_start_points.sh 
     
+    NAME... limits the run to those start-points, eg csharp-nunit. Given none,
+    every start-point is updated. refresh.yml passes one shard's worth of
+    names, so each of its jobs updates only its own share.
+
     Typically followed by:
     \$ make concat_all_start_points
     \$ make image
@@ -52,11 +56,16 @@ function check_args()
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 function update_all_start_points()
 {
-  local -r total="${#ALL_START_POINTS[@]}"
+  # Named start-points, or every one of them when none are named.
+  local -a names=("$@")
+  if [ "${#names[@]}" == '0' ]; then
+    names=("${ALL_START_POINTS[@]}")
+  fi
+  local -r total="${#names[@]}"
   local index=0
   local -a failed=()
   local status
-  for name in "${ALL_START_POINTS[@]}"
+  for name in "${names[@]}"
   do
     index=$((index + 1))
     echo "[${index}/${total}] ${name}"
@@ -89,5 +98,5 @@ function update_all_start_points()
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 if [ "${0}" = "${BASH_SOURCE[0]}" ]; then
   check_args "$@"
-  update_all_start_points
+  update_all_start_points "$@"
 fi

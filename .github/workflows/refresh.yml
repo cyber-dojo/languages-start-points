@@ -1,30 +1,74 @@
 name: Refresh language-start-points image list
 
+# Re-measures every start-point and opens a pull-request with the results.
+#
+# The start-points are split across parallel jobs because almost all of the
+# time goes on pulling their language images, which run from tens of MiB to
+# over a GiB. Each job pulls only its own shard's share.
+#
+# Each job writes only the data/<start-point>/ dirs of its own shard, so the
+# jobs never write the same file, and the merge job assembles their results.
+# The files that concatenate all of them, git_repo_urls.tagged and
+# docs/durations.*, can only be written once every shard has reported, so they
+# are written by the merge job rather than by any shard.
 on:
   workflow_dispatch:
+    inputs:
+      shard_count:
+        description: 'How many parallel jobs to split the start-points across. 1 measures them all in one job.'
+        required: false
+        type: string
+        default: '10'
 
 jobs:
 
   setup:
     runs-on: ubuntu-latest
-    needs: []
     outputs:
       branch_name: ${{ steps.vars.outputs.branch_name }}
+      shards: ${{ steps.shards.outputs.shards }}
     steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
       - name: Prepare outputs for workflow jobs
         id: vars
         run: |
           TAG="${GITHUB_SHA:0:7}"
           echo "branch_name=refresh-language-start-points-list-${TAG}" >> ${GITHUB_OUTPUT}
 
-  refresh:
+      - name: Prepare the shards matrix
+        id: shards
+        env:
+          SHARD_COUNT: ${{ inputs.shard_count }}
+        run: |
+          SHARDS="$(./bin/echo_shuffled_shards.sh "${SHARD_COUNT}")"
+          echo "shards=${SHARDS}" >> "${GITHUB_OUTPUT}"
+          {
+            echo "## Start-point shards"
+            echo "${SHARDS}" | jq --raw-output '.[] | "- **\(.id)**: \(.names)"'
+          } >> "${GITHUB_STEP_SUMMARY}"
+
+
+  measure:
     runs-on: ubuntu-latest
     needs: [ setup ]
+    name: shard ${{ matrix.shard.id }}
     permissions:
-      contents: write
+      contents: read
       packages: read
+    strategy:
+      # One broken start-point must not hide the state of all the others.
+      fail-fast: false
+      # Held below the account's concurrent-job limit so a full run leaves
+      # room for the other workflows. A shard_count above this still works;
+      # the surplus shards queue behind the running ones.
+      max-parallel: 10
+      matrix:
+        shard: ${{ fromJSON(needs.setup.outputs.shards) }}
     env:
-      BRANCH_NAME: ${{ needs.setup.outputs.branch_name }}
+      SHARD_NAMES: ${{ matrix.shard.names }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -35,13 +79,66 @@ jobs:
         # partway with "denied". Authenticating raises the rate limit.
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
+      - name: Update this shard's start-points
+        # Unquoted, so each name becomes an argument of its own.
+        run:
+          ./bin/update_all_start_points.sh ${SHARD_NAMES}
+
+      - name: Collect this shard's data files
+        # Only this shard's start-points. Uploading the whole of data/ would
+        # give every shard a copy of all of them, and the merge job would take
+        # whichever copy it unpacked last, stale ones included.
+        run: |
+          mkdir -p shard-data
+          for name in ${SHARD_NAMES}; do
+            cp -R "data/${name}" "shard-data/${name}"
+          done
+
+      - name: Upload this shard's data files
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-data-${{ matrix.shard.id }}
+          path: shard-data/
+
+      - name: Upload this shard's logs
+        # On failure too: logs/ is not committed, so this is the only copy of
+        # the traffic-light runs that says why a start-point did not update.
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-logs-${{ matrix.shard.id }}
+          path: logs/
+
+
+  merge:
+    runs-on: ubuntu-latest
+    # Every shard, so a start-point that did not update stops the
+    # pull-request rather than landing a list that silently kept its old
+    # numbers for that one.
+    needs: [ setup, measure ]
+    permissions:
+      contents: write
+    env:
+      BRANCH_NAME: ${{ needs.setup.outputs.branch_name }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
       - name: Create branch
         run:
           git checkout -b ${BRANCH_NAME}
 
-      - name: Update language-start-points list
+      - name: Download every shard's data files
+        uses: actions/download-artifact@v8
+        with:
+          pattern: shard-data-*
+          merge-multiple: true
+          path: data/
+
+      - name: Update the concatenated lists
         run:
-          make all_start_points
+          make concat_all_start_points update_durations
 
       - name: Commit
         run: |
