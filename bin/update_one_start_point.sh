@@ -81,9 +81,7 @@ function update_one_start_point()
   local -r name="${1}" # eg csharp-nunit
   local -r url="https://github.com/cyber-dojo-start-points/${1}"
   local repo_dir="${TMP_DIR}"
-  rm -rf "${repo_dir}"
-  mkdir "${repo_dir}"
-  git clone "${url}" "${repo_dir}" &> /dev/null
+  clone_start_point "${name}" "${url}" "${repo_dir}"
   # A start-point measured for the first time has no data dir, and each step
   # below writes a file into it. Creating it after the clone is what keeps a
   # mistyped name from leaving a dir behind, since cloning a repo that does not
@@ -105,6 +103,38 @@ function update_one_start_point()
   # Only on the success path, so a start-point that failed keeps its image for
   # investigating.
   remove_other_tags_of_image "$(jq --raw-output .image_name "${repo_dir}/start_point/manifest.json")"
+}
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Clones "${2}" into "${3}", trying twice. The clone is the one step reaching
+# github.com, so a start-point that is otherwise fine can still fail to clone,
+# and trying again is what keeps one flaky clone from costing a whole refresh.
+#
+# A clone that cannot succeed is reported as exit_non_zero rather than as git's
+# own 128. The caller looping over every start-point reads a status of 128 or
+# more as death by a signal and stops the whole run, which is the wrong answer
+# for one bad start-point.
+function clone_start_point()
+{
+  local -r name="${1}" # eg csharp-nunit
+  local -r url="${2}"
+  local -r repo_dir="${3}"
+  local -r max_attempts=2
+  local attempt=1
+  while true; do
+    rm -rf "${repo_dir}"
+    mkdir "${repo_dir}"
+    # git's own output is discarded to keep the run readable. The message
+    # below is what names the start-point that could not be cloned.
+    if git clone "${url}" "${repo_dir}" &> /dev/null; then
+      return
+    fi
+    if [ "${attempt}" == "${max_attempts}" ]; then
+      stderr "${name}: git clone ${url} failed on all ${max_attempts} attempts"
+      exit_non_zero
+    fi
+    attempt=$((attempt + 1))
+  done
 }
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
