@@ -1,7 +1,7 @@
 {
   "red": {
-    "result": "FAILED",
-    "reached": "amber",
+    "result": "PASSED",
+    "reached": "red",
     "max_seconds": 10
   },
   "amber": {
@@ -10,8 +10,8 @@
     "max_seconds": 10
   },
   "green": {
-    "result": "FAILED",
-    "reached": "amber",
+    "result": "PASSED",
+    "reached": "green",
     "max_seconds": 10
   }
 }
