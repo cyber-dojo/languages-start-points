@@ -98,7 +98,9 @@ The script `bin/concat_all_start_points.sh` creates the file
   - This clones every start-point and runs its red/amber/green tests, which takes a long time.
 - You can also update `git_repo_urls.tagged` via the [.github/workflows/refresh.yml](.github/workflows/refresh.yml) workflow.
   - This creates a branch that you can then merge into main.
+  - It splits the start-points across parallel jobs, each measuring its own share, so it takes minutes rather than the half hour one job takes. Its `shard_count` input says how many jobs to use; 1 measures every start-point in a single job.
 - Run the `make image` to build the image from `git_repo_urls.tagged` for local development/testing.
+- Run `make tests` to run the tests in [test/](test/), which cover the scripts in `bin/`.
 - Create a branch, add, commit, push.
 
 ***
