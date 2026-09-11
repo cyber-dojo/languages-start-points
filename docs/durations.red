@@ -38,6 +38,7 @@
 0.733 javascript-mocha-chai-sinon
 0.723 python-approval-unittest
 0.719 java-sqlite
+0.717 csharp-mstest
 0.703 python-pytest
 0.702 gcc-cpputest
 0.694 ruby-cucumber

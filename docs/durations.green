@@ -37,6 +37,7 @@
 0.746 gcc-cpputest
 0.729 javascript-jest
 0.717 python-approval-unittest
+0.705 csharp-mstest
 0.701 ruby-cucumber
 0.662 d-unittest
 0.661 ruby-approval
