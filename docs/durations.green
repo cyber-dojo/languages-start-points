@@ -75,7 +75,7 @@
 0.388 ruby-testunit
 0.387 bash-shunit2
 0.381 javascript-assert
-0.376 dee-unittest
+0.376 d-unittest
 0.369 r-runit
 0.367 clang-cgreen
 0.362 coffeescript-jasmine

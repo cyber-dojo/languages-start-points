@@ -77,7 +77,7 @@
 0.422 fortran-funit
 0.406 clangplusplus-cgreen
 0.401 gcc-cgreen
-0.397 dee-unittest
+0.397 d-unittest
 0.397 prolog-plunit
 0.395 bash-shunit2
 0.378 bash-bats

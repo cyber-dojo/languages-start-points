@@ -82,6 +82,6 @@
 0.372 bash-shunit2
 0.363 bash-bats
 0.356 gcc-cgreen
-0.355 dee-unittest
+0.355 d-unittest
 0.354 coffeescript-jasmine
 0.340 clang-cgreen
