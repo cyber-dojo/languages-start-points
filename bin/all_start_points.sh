@@ -29,6 +29,7 @@ declare -ar ALL_START_POINTS=(
   gcc-cpputest
   gcc-googletest
   go-convey
+  go-ginkgo
   go-gomock
   go-testify
   go-testing

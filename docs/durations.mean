@@ -54,6 +54,7 @@
 0.527 clangplusplus-assert
 0.519 javascript-cucumber
 0.514 julia-test
+0.503 go-ginkgo
 0.502 go-gomock
 0.498 gplusplus-assert
 0.495 clojure-test
@@ -62,6 +63,7 @@
 0.470 ruby-minitest
 0.452 go-testify
 0.452 ruby-testunit
+0.451 d-unittest
 0.449 go-testing
 0.431 haskell-hunit
 0.428 vhdl-assert
@@ -82,6 +84,5 @@
 0.372 bash-shunit2
 0.363 bash-bats
 0.356 gcc-cgreen
-0.355 d-unittest
 0.354 coffeescript-jasmine
 0.340 clang-cgreen
