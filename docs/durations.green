@@ -38,6 +38,7 @@
 0.729 javascript-jest
 0.717 python-approval-unittest
 0.701 ruby-cucumber
+0.662 d-unittest
 0.661 ruby-approval
 0.655 javascript-assert-jquery
 0.653 gplusplus-cpputest
@@ -49,6 +50,7 @@
 0.587 clangplusplus-assert
 0.573 javascript-jasmine
 0.567 javascript-qunit-sinon
+0.566 go-ginkgo
 0.559 java-sqlite
 0.549 python-assert
 0.547 gplusplus-assert
@@ -75,7 +77,6 @@
 0.388 ruby-testunit
 0.387 bash-shunit2
 0.381 javascript-assert
-0.376 d-unittest
 0.369 r-runit
 0.367 clang-cgreen
 0.362 coffeescript-jasmine

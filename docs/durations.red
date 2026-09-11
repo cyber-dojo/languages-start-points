@@ -56,6 +56,7 @@
 0.536 javascript-cucumber
 0.532 ruby-minitest
 0.532 clangplusplus-assert
+0.526 go-ginkgo
 0.514 vhdl-assert
 0.510 elixir-exunit
 0.496 python-assert
@@ -76,8 +77,8 @@
 0.428 ruby-rspec
 0.422 fortran-funit
 0.406 clangplusplus-cgreen
+0.401 d-unittest
 0.401 gcc-cgreen
-0.397 d-unittest
 0.397 prolog-plunit
 0.395 bash-shunit2
 0.378 bash-bats

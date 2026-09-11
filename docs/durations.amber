@@ -51,6 +51,7 @@
 0.432 prolog-plunit
 0.425 ruby-rspec
 0.421 java-powermockito
+0.417 go-ginkgo
 0.417 python-approval-unittest
 0.414 go-testing
 0.413 elixir-exunit
@@ -84,4 +85,4 @@
 0.319 clang-cgreen
 0.311 python-pytest
 0.295 gplusplus-catch
-0.291 d-unittest
+0.289 d-unittest
