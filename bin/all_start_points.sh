@@ -65,6 +65,7 @@ declare -ar ALL_START_POINTS=(
   jq-approvals
   julia-test
   kotlin-kotest
+  lua-busted
   nasm-assert
   perl-testsimple
   php-unit
@@ -76,6 +77,7 @@ declare -ar ALL_START_POINTS=(
   python-pytest
   python-unittest
   r-runit
+  rescript-jest
   rescript-jest  
   ruby-approval
   ruby-cucumber

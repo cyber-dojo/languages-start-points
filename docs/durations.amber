@@ -18,7 +18,6 @@
 1.188 python-unittest
 1.173 clojure-midje
 1.110 clangplusplus-googlemock
-1.097 typescript-vitest
 1.088 scala-scalatest
 1.072 gplusplus-cpputest
 1.051 javascript-jasmine
@@ -26,13 +25,13 @@
 0.956 javascript-qunit-sinon
 0.944 csharp-reqnroll
 0.927 groovy-junit
-0.905 typescript-jest
 0.805 clojure-test
 0.801 clangplusplus-assert
 0.800 javascript-cucumber
 0.739 python-behave
 0.721 ruby-approval
 0.701 ruby-cucumber
+0.642 typescript-vitest
 0.631 rust-proptest
 0.620 rust-test
 0.612 python-approval-unittest
@@ -41,6 +40,7 @@
 0.570 go-testify
 0.549 python-assert
 0.549 java-cucumberspring
+0.544 typescript-jest
 0.539 ruby-rspec
 0.533 csharp-mstest
 0.528 java-cucumberpico
@@ -59,11 +59,11 @@
 0.438 csharp-nunit
 0.428 java-mockito
 0.422 gplusplus-cgreen
-0.415 rescript-jest
 0.407 java-sqlite
 0.405 java-junit
 0.387 coffeescript-jasmine
 0.377 php-unit
+0.374 rescript-jest
 0.367 prolog-plunit
 0.363 javascript-assert-jquery
 0.346 ruby-minitest
@@ -78,6 +78,7 @@
 0.328 r-runit
 0.325 bash-shunit2
 0.313 go-gomock
+0.310 lua-busted
 0.303 gcc-assert
 0.290 gcc-cgreen
 0.288 bash-unit

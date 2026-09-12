@@ -1,8 +1,6 @@
 3.648 kotlin-kotest
 2.295 clangplusplus-googlemock
 2.207 clangplusplus-catch
-2.191 typescript-jest
-2.096 typescript-vitest
 2.081 fsharp-nunit
 1.946 scala-scalatest
 1.880 csharp-reqnroll
@@ -29,7 +27,6 @@
 1.432 gplusplus-googletest
 1.427 gcc-cpputest
 1.401 java-cucumberspring
-1.401 rescript-jest
 1.357 go-testify
 1.322 javascript-assert-jquery
 1.290 python-approval-unittest
@@ -43,8 +40,10 @@
 1.099 clangplusplus-assert
 1.084 rust-proptest
 1.027 javascript-jasmine
+0.964 typescript-vitest
 0.947 javascript-qunit-sinon
 0.944 erlang-eunit
+0.906 typescript-jest
 0.904 python-behave
 0.843 java-cucumberpico
 0.831 rust-test
@@ -56,6 +55,7 @@
 0.741 java-junit
 0.741 elm-test
 0.729 go-gomock
+0.718 rescript-jest
 0.686 ruby-approval
 0.672 elixir-exunit
 0.670 java-jmock
@@ -69,6 +69,7 @@
 0.560 clangplusplus-cgreen
 0.544 fortran-funit
 0.500 ruby-rspec
+0.481 lua-busted
 0.477 gplusplus-cgreen
 0.472 gcc-assert
 0.444 ruby-testunit
