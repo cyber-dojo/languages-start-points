@@ -69,6 +69,7 @@
 0.544 fortran-funit
 0.500 ruby-rspec
 0.477 gplusplus-cgreen
+0.474 elm-test
 0.472 gcc-assert
 0.444 ruby-testunit
 0.413 ruby-minitest

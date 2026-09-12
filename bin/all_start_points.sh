@@ -22,6 +22,7 @@ declare -ar ALL_START_POINTS=(
   csharp-xunit
   d-unittest
   elixir-exunit
+  elm-test
   erlang-eunit
   fortran-funit
   fsharp-nunit
