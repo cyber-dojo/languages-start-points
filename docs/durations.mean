@@ -68,6 +68,7 @@
 0.541 haskell-hunit
 0.514 fortran-funit
 0.505 ruby-rspec
+0.461 elm-test
 0.460 gplusplus-cgreen
 0.433 gcc-assert
 0.410 ruby-testunit
