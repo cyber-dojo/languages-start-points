@@ -65,7 +65,11 @@ function check_args()
 function listed_in_all_start_points()
 {
   local -r name="${1}" # eg typescript-vitest
-  grep --quiet "^  ${name}\$" "${ALL_START_POINTS_FILENAME}"
+  # An entry counts as listed whatever whitespace trails it. Anchoring the name
+  # straight to the end of the line instead would read a hand-edited entry
+  # carrying a stray space as absent, and a second copy of the name would be
+  # inserted beside it.
+  grep --quiet "^  ${name}[[:blank:]]*\$" "${ALL_START_POINTS_FILENAME}"
 }
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

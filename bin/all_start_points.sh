@@ -78,7 +78,6 @@ declare -ar ALL_START_POINTS=(
   python-unittest
   r-runit
   rescript-jest
-  rescript-jest  
   ruby-approval
   ruby-cucumber
   ruby-minitest
