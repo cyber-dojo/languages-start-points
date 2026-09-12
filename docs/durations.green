@@ -72,6 +72,7 @@
 0.482 gplusplus-cgreen
 0.475 ruby-rspec
 0.456 ruby-testunit
+0.428 ocaml-alcotest
 0.423 ruby-minitest
 0.377 d-unittest
 0.371 bash-bats

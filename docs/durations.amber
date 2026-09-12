@@ -66,6 +66,7 @@
 0.374 rescript-jest
 0.367 prolog-plunit
 0.363 javascript-assert-jquery
+0.349 ocaml-alcotest
 0.346 ruby-minitest
 0.345 bash-bats
 0.345 elm-test

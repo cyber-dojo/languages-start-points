@@ -64,6 +64,7 @@
 0.660 clang-assert
 0.648 haskell-hunit
 0.638 go-convey
+0.593 ocaml-alcotest
 0.592 julia-test
 0.577 go-testing
 0.560 clangplusplus-cgreen

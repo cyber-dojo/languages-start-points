@@ -67,6 +67,7 @@ declare -ar ALL_START_POINTS=(
   kotlin-kotest
   lua-busted
   nasm-assert
+  ocaml-alcotest
   perl-testsimple
   php-unit
   prolog-plunit
