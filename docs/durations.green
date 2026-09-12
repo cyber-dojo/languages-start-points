@@ -1,8 +1,6 @@
 3.831 kotlin-kotest
 2.471 clangplusplus-googlemock
 2.417 gplusplus-googlemock
-2.173 typescript-jest
-2.159 typescript-vitest
 2.049 clangplusplus-googletest
 1.976 scala-scalatest
 1.941 clangplusplus-catch
@@ -32,7 +30,6 @@
 1.377 zig-test
 1.372 gcc-cpputest
 1.336 javascript-assert-jquery
-1.296 rescript-jest
 1.265 java-powermockito
 1.199 csharp-nunit
 1.196 visual-basic-nunit
@@ -41,11 +38,13 @@
 1.143 clangplusplus-assert
 1.117 python-behave
 1.085 python-unittest
+1.073 typescript-vitest
 1.045 java-approval
 1.036 rust-test
 1.023 javascript-jasmine
 0.963 javascript-qunit-sinon
 0.946 python-assert
+0.920 typescript-jest
 0.911 erlang-eunit
 0.874 gplusplus-assert
 0.873 java-cucumberpico
@@ -55,6 +54,7 @@
 0.757 ruby-cucumber
 0.755 java-junit
 0.722 clojure-test
+0.718 rescript-jest
 0.702 java-jmock
 0.701 go-gomock
 0.694 clang-assert
@@ -81,6 +81,7 @@
 0.352 coffeescript-jasmine
 0.351 jq-approvals
 0.346 clang-cgreen
+0.335 lua-busted
 0.329 r-runit
 0.314 bash-shunit2
 0.308 bash-unit
