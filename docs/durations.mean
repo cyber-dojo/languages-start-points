@@ -61,6 +61,7 @@
 0.607 go-convey
 0.581 go-gomock
 0.579 java-sqlite
+0.567 elm-test
 0.566 clang-assert
 0.564 go-testing
 0.555 julia-test
@@ -68,7 +69,6 @@
 0.541 haskell-hunit
 0.514 fortran-funit
 0.505 ruby-rspec
-0.461 elm-test
 0.460 gplusplus-cgreen
 0.433 gcc-assert
 0.410 ruby-testunit

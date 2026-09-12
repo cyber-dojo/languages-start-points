@@ -57,7 +57,6 @@
 0.449 fortran-funit
 0.446 java-approval
 0.438 csharp-nunit
-0.433 elm-test
 0.428 java-mockito
 0.422 gplusplus-cgreen
 0.415 rescript-jest
@@ -69,6 +68,7 @@
 0.363 javascript-assert-jquery
 0.346 ruby-minitest
 0.345 bash-bats
+0.345 elm-test
 0.343 clang-assert
 0.343 javascript-assert
 0.339 jq-approvals

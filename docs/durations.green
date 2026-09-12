@@ -63,13 +63,13 @@
 0.674 elixir-exunit
 0.664 java-sqlite
 0.640 haskell-hunit
+0.615 elm-test
 0.611 go-testing
 0.586 clangplusplus-cgreen
 0.548 fortran-funit
 0.522 gcc-assert
 0.491 julia-test
 0.482 gplusplus-cgreen
-0.477 elm-test
 0.475 ruby-rspec
 0.456 ruby-testunit
 0.423 ruby-minitest
