@@ -54,6 +54,7 @@
 0.785 ruby-cucumber
 0.759 gplusplus-assert
 0.741 java-junit
+0.741 elm-test
 0.729 go-gomock
 0.686 ruby-approval
 0.672 elixir-exunit
@@ -69,7 +70,6 @@
 0.544 fortran-funit
 0.500 ruby-rspec
 0.477 gplusplus-cgreen
-0.474 elm-test
 0.472 gcc-assert
 0.444 ruby-testunit
 0.413 ruby-minitest
