@@ -1,7 +1,7 @@
 {
-  "red_duration": "0.50037715",
-  "amber_duration": "0.539076874",
-  "green_duration": "0.47512109",
-  "mean_duration": "0.5048583713333333",
+  "red_duration": "0.585276902",
+  "amber_duration": "0.584425446",
+  "green_duration": "0.544870643",
+  "mean_duration": "0.5715243303333333",
   "architecture": "amd64"
 }
