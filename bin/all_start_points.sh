@@ -21,6 +21,7 @@ declare -ar ALL_START_POINTS=(
   csharp-reqnroll
   csharp-xunit
   d-unittest
+  dart-test
   elixir-exunit
   elm-test
   erlang-eunit

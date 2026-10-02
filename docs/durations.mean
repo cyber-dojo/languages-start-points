@@ -40,6 +40,7 @@
 0.980 clojure-midje
 0.974 javascript-assert-jquery
 0.895 clang-cgreen
+0.887 dart-test
 0.880 java-cucumberspring
 0.869 python-approval-unittest
 0.839 gcc-cpputest
