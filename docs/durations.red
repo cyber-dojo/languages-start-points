@@ -52,6 +52,7 @@
 0.760 go-testify
 0.759 ruby-cucumber
 0.745 go-gomock
+0.743 dart-test
 0.741 clangplusplus-assert
 0.733 perl-testsimple
 0.733 javascript-cucumber

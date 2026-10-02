@@ -42,6 +42,7 @@
 0.991 erlang-eunit
 0.991 clojure-midje
 0.860 java-cucumberpico
+0.855 dart-test
 0.835 gcc-cpputest
 0.829 java-junit
 0.812 javascript-qunit-sinon
