@@ -15,6 +15,7 @@ declare -ar ALL_START_POINTS=(
   clangplusplus-igloo
   clojure-midje
   clojure-test
+  cobol-check
   coffeescript-jasmine
   csharp-mstest
   csharp-nunit

@@ -58,7 +58,6 @@
 0.491 elixir-exunit
 0.485 java-cucumberspring
 0.482 bash-shunit2
-0.462 csharp-nunit
 0.446 fortran-funit
 0.445 gplusplus-assert
 0.441 clangplusplus-cgreen
@@ -91,3 +90,5 @@
 0.259 python-pytest
 0.235 d-unittest
 0.235 vhdl-assert
+0.164 csharp-nunit
+0.100 cobol-check
