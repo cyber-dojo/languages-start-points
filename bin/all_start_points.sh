@@ -2,6 +2,7 @@
 set -Eeu
 
 declare -ar ALL_START_POINTS=(
+  ada-aunit
   bash-bats
   bash-shunit2
   bash-unit

@@ -74,6 +74,7 @@
 0.570 clangplusplus-cgreen
 0.558 java-jmock
 0.545 fortran-funit
+0.528 ada-aunit
 0.509 ruby-testunit
 0.477 julia-test
 0.469 gplusplus-cgreen

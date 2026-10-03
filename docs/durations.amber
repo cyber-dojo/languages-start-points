@@ -90,5 +90,6 @@
 0.259 python-pytest
 0.235 d-unittest
 0.235 vhdl-assert
+0.222 ada-aunit
 0.164 csharp-nunit
 0.100 cobol-check

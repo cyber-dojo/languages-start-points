@@ -72,6 +72,7 @@
 0.534 clangplusplus-cgreen
 0.526 java-jmock
 0.519 fortran-funit
+0.504 ada-aunit
 0.500 gplusplus-cgreen
 0.500 javascript-assert
 0.480 ruby-rspec

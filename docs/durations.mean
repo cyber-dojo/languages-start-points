@@ -80,6 +80,7 @@
 0.459 gplusplus-cgreen
 0.455 python-unittest
 0.447 ruby-testunit
+0.418 ada-aunit
 0.415 ocaml-alcotest
 0.400 bash-shunit2
 0.377 php-unit
