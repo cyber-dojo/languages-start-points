@@ -33,7 +33,6 @@
 1.084 visual-basic-nunit
 1.057 perl-testsimple
 1.016 rescript-jest
-1.007 csharp-nunit
 1.005 erlang-eunit
 0.998 clangplusplus-igloo
 0.991 java-powermockito
@@ -87,7 +86,9 @@
 0.365 jq-approvals
 0.351 bash-bats
 0.348 coffeescript-jasmine
+0.347 csharp-nunit
 0.332 d-unittest
 0.308 nasm-assert
 0.294 lua-busted
 0.280 vhdl-assert
+0.255 cobol-check
