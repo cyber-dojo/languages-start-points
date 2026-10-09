@@ -1,4 +1,3 @@
-0.967 fsharp-nunit
 0.723 dart-test
 0.620 gplusplus-cucumber
 0.568 gplusplus-igloo
@@ -8,14 +7,11 @@
 0.544 gcc-googletest
 0.544 clojure-midje
 0.516 kotlin-kotest
-0.513 visual-basic-nunit
 0.513 clangplusplus-googletest
 0.508 gplusplus-googletest
-0.501 csharp-xunit
 0.500 python-approval-pytest
 0.488 groovy-spock
 0.487 gcc-cpputest
-0.458 csharp-reqnroll
 0.455 gplusplus-googlemock
 0.432 clangplusplus-igloo
 0.431 zig-test
@@ -27,15 +23,16 @@
 0.339 clangplusplus-googlemock
 0.338 scala-scalatest
 0.324 typescript-vitest
+0.315 fsharp-nunit
 0.296 groovy-junit
 0.291 typescript-jest
 0.267 nasm-assert
 0.264 javascript-cucumber
+0.257 csharp-reqnroll
 0.254 clangplusplus-assert
 0.252 julia-test
 0.252 javascript-jasmine
 0.240 erlang-eunit
-0.239 csharp-mstest
 0.222 go-testing
 0.220 go-testify
 0.211 gplusplus-assert
@@ -46,7 +43,6 @@
 0.178 java-sqlite
 0.175 bash-shunit2
 0.172 elixir-exunit
-0.164 csharp-nunit
 0.164 java-junit
 0.163 ada-aunit
 0.158 ruby-cucumber
@@ -54,8 +50,11 @@
 0.149 gplusplus-cgreen
 0.148 ruby-rspec
 0.138 java-mockito
+0.133 csharp-xunit
+0.132 visual-basic-nunit
 0.128 rust-proptest
 0.127 go-ginkgo
+0.126 csharp-mstest
 0.125 java-cucumberspring
 0.124 python-unittest
 0.122 java-cucumberpico
@@ -68,6 +67,7 @@
 0.111 r-runit
 0.110 java-powermockito
 0.107 java-jmock
+0.106 csharp-nunit
 0.105 gcc-cgreen
 0.103 php-unit
 0.090 coffeescript-jasmine
