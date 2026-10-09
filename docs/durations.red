@@ -1,7 +1,4 @@
-1.863 fsharp-nunit
 1.630 kotlin-kotest
-1.437 csharp-xunit
-1.362 visual-basic-nunit
 1.057 python-approval-pytest
 0.963 clangplusplus-catch
 0.957 groovy-spock
@@ -13,12 +10,12 @@
 0.708 dart-test
 0.696 swift-xctest
 0.650 gplusplus-igloo
+0.639 fsharp-nunit
 0.632 clangplusplus-googletest
 0.619 gplusplus-catch
-0.609 csharp-reqnroll
 0.606 scala-scalatest
 0.603 groovy-junit
-0.582 csharp-mstest
+0.597 csharp-reqnroll
 0.569 gplusplus-googletest
 0.564 gcc-googletest
 0.546 java-mockito
@@ -27,7 +24,6 @@
 0.513 gplusplus-googlemock
 0.510 clangplusplus-igloo
 0.498 gplusplus-cpputest
-0.466 csharp-nunit
 0.456 java-sqlite
 0.455 ada-aunit
 0.455 clojure-midje
@@ -35,11 +31,15 @@
 0.445 java-powermockito
 0.443 erlang-eunit
 0.441 gcc-cpputest
+0.438 csharp-xunit
 0.424 typescript-vitest
 0.421 javascript-jest
+0.411 csharp-mstest
 0.407 java-cucumberpico
 0.402 javascript-mocha-chai-sinon
+0.383 visual-basic-nunit
 0.370 typescript-jest
+0.358 csharp-nunit
 0.355 nasm-assert
 0.354 java-approval
 0.352 elixir-exunit
