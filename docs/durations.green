@@ -1,12 +1,12 @@
 1.365 kotlin-kotest
 0.984 clangplusplus-googlemock
-0.889 dart-test
 0.886 clangplusplus-catch
 0.772 gplusplus-catch
 0.734 gplusplus-boosttest
 0.715 zig-test
 0.705 swift-swordfish
 0.690 clangplusplus-googletest
+0.688 dart-test
 0.676 groovy-spock
 0.667 swift-xctest
 0.667 fsharp-nunit
@@ -29,7 +29,6 @@
 0.442 clangplusplus-assert
 0.440 gcc-cpputest
 0.435 csharp-xunit
-0.432 go-convey
 0.429 typescript-vitest
 0.427 erlang-eunit
 0.395 go-gomock
@@ -75,6 +74,7 @@
 0.172 elm-test
 0.170 ruby-testunit
 0.158 julia-test
+0.156 go-convey
 0.152 ruby-approval
 0.141 d-unittest
 0.127 clang-cgreen

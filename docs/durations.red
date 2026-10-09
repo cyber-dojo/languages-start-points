@@ -7,8 +7,8 @@
 0.763 swift-swordfish
 0.723 zig-test
 0.717 gplusplus-boosttest
-0.708 dart-test
 0.696 swift-xctest
+0.650 dart-test
 0.650 gplusplus-igloo
 0.639 fsharp-nunit
 0.632 clangplusplus-googletest
@@ -52,7 +52,6 @@
 0.305 java-jmock
 0.292 python-approval-unittest
 0.287 javascript-jasmine
-0.273 go-convey
 0.265 javascript-cucumber
 0.259 go-testify
 0.252 clangplusplus-assert
@@ -80,6 +79,7 @@
 0.168 bash-bats
 0.150 clang-assert
 0.149 r-runit
+0.148 go-convey
 0.140 php-unit
 0.138 clang-cgreen
 0.131 gcc-assert
