@@ -1,11 +1,11 @@
 1.170 kotlin-kotest
-0.773 dart-test
 0.715 clangplusplus-googlemock
 0.709 python-approval-pytest
 0.707 groovy-spock
 0.688 gplusplus-cucumber
 0.677 swift-swordfish
 0.673 gplusplus-boosttest
+0.654 dart-test
 0.639 clangplusplus-catch
 0.638 swift-xctest
 0.628 gplusplus-igloo
@@ -42,7 +42,6 @@
 0.308 nasm-assert
 0.302 rescript-jest
 0.298 visual-basic-nunit
-0.286 go-convey
 0.281 javascript-jasmine
 0.278 rust-proptest
 0.271 java-junit
@@ -77,6 +76,7 @@
 0.149 elm-test
 0.145 bash-unit
 0.144 javascript-assert
+0.134 go-convey
 0.132 vhdl-assert
 0.128 ruby-rspec
 0.128 r-runit
