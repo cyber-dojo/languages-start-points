@@ -105,7 +105,7 @@ The script `bin/concat_all_start_points.sh` creates the file
 
 ***
 
-![cyber-dojo.org home page](https://github.com/cyber-dojo/cyber-dojo/blob/master/shared/home_page_snapshot.png)
+![cyber-dojo.org home page](https://github.com/cyber-dojo/cyber-dojo/blob/main/shared/home_page_snapshot.png)
 
 ***
 
