@@ -44,7 +44,7 @@
 0.278 java-approval
 0.256 rust-test
 0.244 python-pytest
-0.225 cobol-check
+0.237 cobol-check
 0.224 gplusplus-assert
 0.214 go-ginkgo
 0.206 python-approval-unittest

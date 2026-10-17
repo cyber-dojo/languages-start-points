@@ -79,6 +79,7 @@
 0.058 go-convey
 0.057 bash-shunit2
 0.056 go-testing
+0.055 cobol-check
 0.050 python-pytest
 0.049 clang-cgreen
 0.043 bash-unit
@@ -87,7 +88,6 @@
 0.040 lua-busted
 0.037 clangplusplus-catch
 0.037 perl-testsimple
-0.034 cobol-check
 0.034 gplusplus-catch
 0.033 go-gomock
 0.032 d-unittest
