@@ -53,11 +53,11 @@
 0.179 elixir-exunit
 0.175 python-behave
 0.174 go-ginkgo
+0.171 cobol-check
 0.169 java-cucumberpico
 0.167 java-sqlite
 0.166 javascript-jasmine
 0.163 python-pytest
-0.162 cobol-check
 0.157 python-approval-unittest
 0.154 ruby-approval
 0.149 vhdl-assert

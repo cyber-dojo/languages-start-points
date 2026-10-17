@@ -46,8 +46,8 @@
 0.238 rust-test
 0.237 java-sqlite
 0.232 vhdl-assert
-0.225 cobol-check
 0.223 go-ginkgo
+0.222 cobol-check
 0.221 clangplusplus-assert
 0.215 ruby-cucumber
 0.210 elixir-exunit
