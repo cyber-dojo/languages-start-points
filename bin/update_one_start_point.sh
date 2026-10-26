@@ -10,18 +10,27 @@ readonly TMP_DIR=$(mktemp -d /tmp/cyber-dojo.languages-start-points.build.XXXXXX
 # concat_all_durations.py reads durations.json from every dir under data/, so a
 # half-written one would stop it reporting any start-point at all.
 INCOMPLETE_DATA_DIR=''
-function remove_tmps()
+# The ID of the language image this run pulled, if any. Every start-point's
+# image is pulled when it is measured, and 90+ of them kept locally fill the
+# disk, so each one goes when its run ends, whether that run passed or failed.
+PULLED_IMAGE_ID=''
+function remove_tmps_and_pulled_image()
 {
   rm -rf "${TMP_DIR}" > /dev/null
   if [ -n "${INCOMPLETE_DATA_DIR}" ]; then
     rm -rf "${INCOMPLETE_DATA_DIR}"
   fi
+  if [ -n "${PULLED_IMAGE_ID}" ]; then
+    # By ID, so every tag of the image goes with it, and an image pulled by
+    # digest alone, which has no tag, goes too.
+    docker image rm --force "${PULLED_IMAGE_ID}" > /dev/null
+  fi
 }
 # Ctrl-C must end this process, not just clean up and carry on to the next
 # statement. 130 is the conventional status for death by SIGINT, and the caller
 # looping over all start-points uses it to stop the whole run.
-trap 'remove_tmps; exit 130' INT
-trap remove_tmps EXIT
+trap 'remove_tmps_and_pulled_image; exit 130' INT
+trap remove_tmps_and_pulled_image EXIT
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 function show_help()
@@ -100,9 +109,6 @@ function update_one_start_point()
   # Every data file is written, so the dir is complete and stays whatever
   # happens next.
   INCOMPLETE_DATA_DIR=''
-  # Only on the success path, so a start-point that failed keeps its image for
-  # investigating.
-  remove_other_tags_of_image "$(jq --raw-output .image_name "${repo_dir}/start_point/manifest.json")"
 }
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -134,25 +140,6 @@ function clone_start_point()
       exit_non_zero
     fi
     attempt=$((attempt + 1))
-  done
-}
-
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# A start-point's manifest pins one tag of its language image, and every earlier
-# tag still sitting in the local store is dead weight. Across 83 start-points
-# those add up to more than the disk holds, so they go as each start-point is
-# measured. The pinned tag stays, which keeps the next run's pull warm.
-function remove_other_tags_of_image()
-{
-  local -r image_name="${1}"             # eg ghcr.io/cyber-dojo-languages/gcc_assert:98e787d
-  local -r repository="${image_name%:*}" # eg ghcr.io/cyber-dojo-languages/gcc_assert
-  local tagged_name
-  for tagged_name in $(docker image ls --format '{{.Repository}}:{{.Tag}}' "${repository}")
-  do
-    if [ "${tagged_name}" != "${image_name}" ]; then
-      echo "Removing superseded ${tagged_name}"
-      docker image rm --force "${tagged_name}" || echo "  ${tagged_name} not removed"
-    fi
   done
 }
 
@@ -209,6 +196,7 @@ function get_red_amber_green_durations()
   # Unquoted on purpose: empty must expand to no argument at all, and the value
   # is a literal with no spaces.
   DOCKER_CLI_HINTS=false docker pull ${platform:+--platform ${platform}} "${image_name}"
+  PULLED_IMAGE_ID="$(docker image inspect --format '{{.Id}}' "${image_name}")"
 
   # Which architecture the durations below were actually measured on. An image
   # published for this host runs natively; one without a matching variant runs
