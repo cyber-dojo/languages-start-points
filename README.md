@@ -1,6 +1,7 @@
 [![GitHub CI](../../actions/workflows/main.yml/badge.svg)](../../actions/workflows/main.yml)
 
-A [docker-containerized](https://registry.hub.docker.com/r/cyberdojo/languages-start-points) micro-service for [https://cyber-dojo.org](http://cyber-dojo.org) serving this page:
+A [docker-containerized](https://registry.hub.docker.com/r/cyberdojo/languages-start-points) micro-service for [https://cyber-dojo.org](http://cyber-dojo.org) serving the `language?` and `test-framework?` choices in
+this page:
 
 ![Screenshot](https://github.com/cyber-dojo/languages-start-points/blob/main/docs/screen_shot.png)
 
@@ -8,9 +9,9 @@ A [docker-containerized](https://registry.hub.docker.com/r/cyberdojo/languages-s
 A languages-start-points image provides an API for the `language & test-framework`
 choices when setting up a practice session in [cyber-dojo](https://cyber-dojo.org)
 
-In the above screenshot, `Python 3.14.3, pytest 9.0.2` is selected.
+In the above screenshot, `Python` and `pytest` is selected.
 
-The source for the Python,pytest start point is the GitHub repo
+The source for the `Python`+`pytest` start point is the GitHub repo
 [cyber-dojo-languages/python-pytest](https://github.com/cyber-dojo-languages/python-pytest)
 
 The following cyber-dojo [CLI](https://github.com/cyber-dojo/commander/blob/master/cyber-dojo) command creates a languages-start-points image called `only-python-pytest` serving only this start-point, at commit `921f17a`:
